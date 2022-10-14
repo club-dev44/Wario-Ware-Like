@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,11 @@ public class GameManager : MonoBehaviour
     // Static singleton instance
     public static GameManager Instance { get; private set; }
     private int score = 10;
-
+    
+    [Header("Scenes Settings")]
+    [Tooltip("la scene doit être dans les build settings")]
+    public List<GameData> scenesDeJeu = new List<GameData>();
+    public string nomSceneMenu = "Menu";
 
 
     private void Awake()
@@ -26,12 +31,12 @@ public class GameManager : MonoBehaviour
 
     public void jeuSuivant()
     {
-        SceneManager.LoadScene("Jeu1");
+        SceneManager.LoadScene(scenesDeJeu[0].sceneName);
     }
 
     public void sceneMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(nomSceneMenu);
     }
 
     public void ajouterScore()
