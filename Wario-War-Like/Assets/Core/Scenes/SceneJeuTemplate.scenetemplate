@@ -17,23 +17,31 @@ MonoBehaviour:
   description: Scene template pour ajouter un jeu au wario-war-like
   preview: {fileID: 0}
   dependencies:
+  - dependency: {fileID: 9126366861917166097, guid: 995387dc307f1f145bb3853ce36f978e, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 1715243897875774767, guid: 0de419777d5b78c4396d1cf103192c99, type: 3}
+    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: 4a10d13bc42481040a93550122de764b, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 3028dc075ba8c584d9bc7d1e0255e038, type: 3}
     instantiationMode: 1
+  - dependency: {fileID: 4036187959766631137, guid: 5a72b15eaefacd24d8990cba60ebb28b, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 7400000, guid: bd2075b6a0df7714eb382d2cb0f4f2f7, type: 2}
+    instantiationMode: 0
   - dependency: {fileID: 2800000, guid: ee148e281f3c41c5b4ff5f8a5afe5a6c, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 2800000, guid: 2fd6421f253b4ef1a19526541f9ffc0c, type: 3}
     instantiationMode: 1
-  - dependency: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  - dependency: {fileID: 243955407753922619, guid: ffc15e052cc873d4f8895fbd85095b66, type: 3}
+    instantiationMode: 0
+  - dependency: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
     instantiationMode: 1
   - dependency: {fileID: 5248537865385138191, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
     instantiationMode: 1
   - dependency: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
     instantiationMode: 1
-  - dependency: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    instantiationMode: 1
-  - dependency: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+  - dependency: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
     instantiationMode: 1
   templatePipeline: {fileID: 0}
   badge: {fileID: 0}
