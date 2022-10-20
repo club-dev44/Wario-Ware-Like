@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Jeux/Pong/Pong.unity
     guid: 03d2f37f0cbf2f74386bcfd9db01fff0
+  - enabled: 1
+    path: Assets/Core/Scenes/LoadingScene.unity
+    guid: 461c5de74b7f1d74f81220eeec23a150
+  - enabled: 1
+    path: Assets/Jeux/Jeu2/Jeu2Scene.unity
+    guid: 569ad60577b46a3478cce49053680976
   m_configObjects: {}

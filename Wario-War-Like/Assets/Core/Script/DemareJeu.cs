@@ -15,6 +15,6 @@ public class DemareJeu : MonoBehaviour
 
     public void DemarerJeu()
     {
-        gameManager.jeuSuivant();
+        gameManager.jeuSuivant(new []{5, 0});
     }
 }
