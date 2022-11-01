@@ -6,7 +6,7 @@
             "id": "d160bb49-5cbc-4103-a865-180ecb90fb0c",
             "actions": [
                 {
-                    "name": "Join Action",
+                    "name": "Join",
                     "type": "Button",
                     "id": "8720aecb-a32f-4a18-a83a-cc4c6d62ca82",
                     "expectedControlType": "Button",
@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Bonjour",
+                    "name": "Ready",
                     "type": "Button",
                     "id": "c2c6d77d-62b4-4158-bcda-639340800ee8",
                     "expectedControlType": "Button",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Join Action",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Join Action",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -54,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Bonjour",
+                    "action": "Ready",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

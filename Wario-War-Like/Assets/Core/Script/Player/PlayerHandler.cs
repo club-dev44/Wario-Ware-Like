@@ -5,14 +5,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerHandler : MonoBehaviour
 {
-    PlayerInput playerInput;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        InputAction _ready = playerInput.currentActionMap.FindAction("Ready");
+        _ready.performed += IsReady;
     }
 
-    public void IsReady()
+    public void IsReady(InputAction.CallbackContext context)
     {
         PlayerConfigurationManager.Instance.PlayerReady(playerInput.playerIndex);
     }

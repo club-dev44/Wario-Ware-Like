@@ -11,6 +11,7 @@ public class PlayerDisplay : MonoBehaviour
 
     private void Start()
     {
+        PlayerConfigurationManager.Instance.inputManager.onPlayerJoined += OnPlayerJoin;
         PlayerConfigurationManager.Instance.playerReady += OnPlayerReady;
     }
 

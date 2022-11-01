@@ -7,8 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
-    [SerializeField]
-    private PlayerInputManager inputManager;
+    public PlayerInputManager inputManager { get; private set; }
 
     private List<PlayerConfiguration> playerConfigs;
 
@@ -29,8 +28,14 @@ public class PlayerConfigurationManager : MonoBehaviour
         inputManager = GetComponent<PlayerInputManager>();
     }
 
+    private void Start()
+    {
+        inputManager.onPlayerJoined += OnPlayerJoin;
+    }
+
     public void OnPlayerJoin(PlayerInput playerInput)
     {
+        Debug.Log("Player joined");
         playerInput.transform.parent = transform;
         if (!playerConfigs.Any(pi => pi.PlayerIndex == playerInput.playerIndex))
             playerConfigs.Add(new PlayerConfiguration(playerInput));
@@ -39,9 +44,20 @@ public class PlayerConfigurationManager : MonoBehaviour
     public void PlayerReady(int index)
     {
         playerReady?.Invoke(index);
-        playerConfigs[index].IsReady = true;
+        playerConfigs[index].IsReady = !playerConfigs[index].IsReady;
         if (playerConfigs.TrueForAll(pi => pi.IsReady))
+        {
+            inputManager.DisableJoining();
             Debug.Log("Everyone is ready! Let's go!!");
+        }
+    }
+
+    public void RemoveAllPlayersFromGame()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
 

@@ -11,8 +11,7 @@ public class CountDownAnimation : MonoBehaviour
     
     public void playAnimation()
     {
-        IEnumerator animation = animationEnumerator();
-        StartCoroutine(animation);
+        StartCoroutine(nameof(animationEnumerator));
     }
 
     IEnumerator animationEnumerator()
