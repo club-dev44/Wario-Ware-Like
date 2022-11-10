@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             inputManager.DisableJoining();
             Debug.Log("Everyone is ready! Let's go!!");
+            SceneManager.LoadScene("LoadingScene");
         }
     }
 
