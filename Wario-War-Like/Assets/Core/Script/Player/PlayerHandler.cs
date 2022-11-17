@@ -5,11 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerHandler : MonoBehaviour
 {
+    [SerializeField]
     private PlayerInput playerInput;
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
         InputAction _ready = playerInput.currentActionMap.FindAction("Ready");
         _ready.performed += IsReady;
     }
