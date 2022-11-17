@@ -12,6 +12,7 @@ public class PlayerConfigurationManager : MonoBehaviour
     public PlayerInputManager inputManager { get; private set; }
 
     private List<PlayerConfiguration> playerConfigs;
+    public IReadOnlyList<PlayerConfiguration> PlayerConfigurations { get => playerConfigs; }
 
     public static PlayerConfigurationManager Instance { get; private set; }
 
