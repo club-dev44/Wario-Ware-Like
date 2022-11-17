@@ -8,20 +8,24 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    
-    
+
+
     // Static singleton instance
     public static GameManager Instance { get; private set; }
-    
+
     [Header("Scenes Settings")]
     [Tooltip("la scene doit être dans les build settings")]
     public List<GameData> scenesDeJeu = new List<GameData>();
     private string nomSceneMenu = "Menu";
     private string nomLoadingScene = "loadingScene";
-    
+
     [SerializeField] private List<GameData> jeuxChoisi = new List<GameData>();
     [SerializeField] private int actualGameIndex;
-    
+
+    private PlayerConfigurationManager playerConfiguration;
+
+    public event Action StartGame;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -32,7 +36,20 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
+    private void Start()
+    {
+        playerConfiguration = PlayerConfigurationManager.Instance;
+        if (playerConfiguration.AllPlayersReady)
+            OnPlayerReady();
+        else
+            playerConfiguration.allPlayersAreReady += OnPlayerReady;
+    }
+
+    private void OnPlayerReady()
+    {
+        StartGame?.Invoke();
+    }
 
     public void jeuSuivant(int[] resultatJoueur)
     {
@@ -57,8 +74,8 @@ public class GameManager : MonoBehaviour
     }
 
     public AsyncOperation chargerProchainJeuxAsync()
-    { 
-        if(jeuxChoisi.Count == 0) choisirJeux(1, 10);
+    {
+        if (jeuxChoisi.Count == 0) choisirJeux(1, 10);
         actualGameIndex++;
         if (actualGameIndex >= jeuxChoisi.Count)
         {

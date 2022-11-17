@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerConfigurationManager : MonoBehaviour
 {
@@ -15,6 +16,19 @@ public class PlayerConfigurationManager : MonoBehaviour
     public static PlayerConfigurationManager Instance { get; private set; }
 
     public event Action<int> playerReady;
+
+    private bool allPlayersReady;
+    public bool AllPlayersReady
+    {
+        get => allPlayersReady;
+        private set
+        {
+            if (value) allPlayersAreReady?.Invoke();
+            allPlayersReady = value;
+        }
+    }
+
+    public event Action allPlayersAreReady;
 
     private void Awake()
     {
@@ -27,10 +41,6 @@ public class PlayerConfigurationManager : MonoBehaviour
         }
 
         inputManager = GetComponent<PlayerInputManager>();
-    }
-
-    private void Start()
-    {
         inputManager.onPlayerJoined += OnPlayerJoin;
     }
 
@@ -50,7 +60,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             inputManager.DisableJoining();
             Debug.Log("Everyone is ready! Let's go!!");
-            SceneManager.LoadScene("LoadingScene");
+            AllPlayersReady = true;
         }
     }
 
