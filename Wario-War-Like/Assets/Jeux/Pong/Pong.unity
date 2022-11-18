@@ -158,6 +158,7 @@ MonoBehaviour:
   xMax: 5
   yMin: -5
   yMax: 5
+  gameManagerPong: {fileID: 542290144}
 --- !u!4 &28385438
 Transform:
   m_ObjectHideFlags: 0
@@ -5331,6 +5332,8 @@ MonoBehaviour:
   min: -3.5
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   baseColor: {r: 0.9607844, g: 0.36078432, b: 0.36078432, a: 1}
+  gameManagerPong: {fileID: 542290144}
+  playerIndex: 0
 --- !u!212 &324185326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10419,6 +10422,7 @@ MonoBehaviour:
   animation: {fileID: 202323376}
   explosion: {fileID: 426730628}
   winText: {fileID: 1509733667}
+  gameStarted: 0
 --- !u!4 &542290145
 Transform:
   m_ObjectHideFlags: 0
@@ -10622,7 +10626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209797554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.84, y: 0.28, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -10686,6 +10690,7 @@ MonoBehaviour:
   xMax: 5
   yMin: -5
   yMax: 5
+  gameManagerPong: {fileID: 542290144}
 --- !u!4 &1327947299
 Transform:
   m_ObjectHideFlags: 0
@@ -10975,6 +10980,65 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1592803781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3969502488167270857, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_Name
+      value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
 --- !u!1 &1711651205
 GameObject:
   m_ObjectHideFlags: 0
@@ -11062,6 +11126,8 @@ MonoBehaviour:
   min: -3.5
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   baseColor: {r: 0.9607844, g: 0.36078432, b: 0.36078432, a: 1}
+  gameManagerPong: {fileID: 542290144}
+  playerIndex: 0
 --- !u!212 &1711651209
 SpriteRenderer:
   m_ObjectHideFlags: 0

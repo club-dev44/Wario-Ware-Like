@@ -26,15 +26,20 @@ public class FireGenerator : MonoBehaviour
     [SerializeField]
     private float yMax = 5;
 
-    public void Start()
-    {
-        IEnumerator enumerator = generateIceEvery5sec();
-        StartCoroutine(enumerator);
+    
+    [SerializeField] private GameManagerPong gameManagerPong;
+    
+    private void Awake() {
+        gameManagerPong.gameStart += () =>
+        {
+            IEnumerator enumerator = generateFireEvery5sec();
+            StartCoroutine(enumerator);
+        };
     }
 
 
 
-    IEnumerator generateIceEvery5sec()
+    IEnumerator generateFireEvery5sec()
     {
         while (true)
         {

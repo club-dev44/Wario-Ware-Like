@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Pong
 {
@@ -26,12 +29,19 @@ public class iceGenerator : MonoBehaviour
     [SerializeField]
     private float yMax = 5;
 
-    public void Start()
-    {
-        IEnumerator enumerator = generateIceEvery5sec();
-        StartCoroutine(enumerator);
-    }
+    private bool isPlaying = false;
 
+    [SerializeField] private GameManagerPong gameManagerPong;
+    
+    private void Awake() {
+        gameManagerPong.gameStart += () =>
+        {
+            IEnumerator enumerator = generateIceEvery5sec();
+            StartCoroutine(enumerator);
+        };
+    }
+    
+    
 
 
     IEnumerator generateIceEvery5sec()

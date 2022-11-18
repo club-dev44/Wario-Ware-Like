@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Pong
 {
@@ -25,8 +27,8 @@ public class BallConttroll : MonoBehaviour
     private float speed = 10.0f;
 
 
-    private float speedX;
-    private float speedY;
+    private float speedX = 0;
+    private float speedY = 0;
 
 
     [SerializeField]
@@ -58,21 +60,31 @@ public class BallConttroll : MonoBehaviour
     public List<GameObject> fireGameObjects;
 
 
-    public bool play = true;
+    public bool play;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    private void Awake() {
+     
         player1Collider = player1.GetComponent<Collider2D>();
         player2Collider = player2.GetComponent<Collider2D>();
         playerControllPlayer1 = player1.GetComponent<PlayerControll>();
         playerControllPlayer2 = player2.GetComponent<PlayerControll>();
 
         icesGameObjects = new List<GameObject>();
-
-        speedX = speed;
-        speedY = speed;
+        play = false;
+        speedX = 0;
+        speedY = 0;
+        gameManager.matchStart += () =>
+        {
+            newMatch();
+        };
     }
+
+    private void newMatch() {
+        setSpeed(10);
+        play = true;
+    }
+    
 
     private void FixedUpdate()
     {

@@ -43,11 +43,20 @@ public class GameManagerPong : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI winText;
 
-    private void Start()
-    {
-        newMatch();
+
+    public bool gameStarted = false;
+    public event Action gameStart;
+    public event Action matchStart;
+    
+
+
+    private void Awake() {
+        GameManager.Instance.StartGame += newMatch;
     }
 
+    private void OnDestroy() {
+        GameManager.Instance.StartGame -= newMatch;
+    }
 
     public void newMatch()
     {
@@ -56,7 +65,6 @@ public class GameManagerPong : MonoBehaviour
         player2.transform.position = player2StartPosition;
         ball.transform.position = Vector3.zero;
         ball.GetComponent<BallConttroll>().play = false;
-        ball.GetComponent<BallConttroll>().setSpeed(10.0f);
 
         IEnumerator coroutine = compteARebourNewMatch();
         animation.SetActive(true);
@@ -88,10 +96,12 @@ public class GameManagerPong : MonoBehaviour
         
         yield return new WaitForSeconds(3f);
         explosion.SetActive(true);
-
-
-        ball.GetComponent<BallConttroll>().play = true;
-         animation.SetActive(false);
+        animation.SetActive(false);
+        matchStart?.Invoke();
+        if (!gameStarted) {
+            gameStarted = true;
+            gameStart?.Invoke();
+        }
     }
 
 

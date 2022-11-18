@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Pong
 {
@@ -29,12 +30,21 @@ public class PlayerControll : MonoBehaviour
     [SerializeField]
     private Color baseColor;
 
+    [SerializeField] private GameManagerPong gameManagerPong;
 
+    [SerializeField] private int playerIndex;
+    
+    
     private SpriteRenderer spriteRenderer;
     void Start()
     {
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer.color = baseColor;
+        gameManagerPong.gameStart += GameManagerPongOngameStart;
+    }
+
+    private void GameManagerPongOngameStart() {
+        
     }
 
     // Update is called once per frame
