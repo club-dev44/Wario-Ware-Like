@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+namespace Core
+{
+    
+
+
 public class DemareJeu : MonoBehaviour
 {
     private GameManager gameManager;
@@ -17,4 +23,5 @@ public class DemareJeu : MonoBehaviour
     {
         gameManager.jeuSuivant(new []{5, 0});
     }
+}
 }

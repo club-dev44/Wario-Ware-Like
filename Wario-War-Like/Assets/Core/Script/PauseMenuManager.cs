@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Core
+{
+    
 public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject uiPauseMenu;
@@ -19,4 +22,5 @@ public class PauseMenuManager : MonoBehaviour
     {
         uiPauseMenu.SetActive(!uiPauseMenu.activeSelf);
     }
+}
 }

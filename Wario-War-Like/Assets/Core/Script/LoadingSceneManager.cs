@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+namespace Core
+{
+    
 public class LoadingSceneManager : MonoBehaviour
 {
 
@@ -42,4 +45,5 @@ public class LoadingSceneManager : MonoBehaviour
         
     }
 
+}
 }

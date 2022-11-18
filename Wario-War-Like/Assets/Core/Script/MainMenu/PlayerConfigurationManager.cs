@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+namespace Core
+{
+    
 public class PlayerConfigurationManager : MonoBehaviour
 {
     public PlayerInputManager inputManager { get; private set; }
@@ -86,4 +89,5 @@ public class PlayerConfiguration
     public int PlayerIndex;
     public bool IsReady;
     public Material PlayerMaterial;
+}
 }

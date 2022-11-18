@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace Core
+{
+    
 public class PlayerHandler : MonoBehaviour
 {
     [SerializeField]
@@ -18,4 +21,5 @@ public class PlayerHandler : MonoBehaviour
     {
         PlayerConfigurationManager.Instance.PlayerReady(playerInput.playerIndex);
     }
+}
 }

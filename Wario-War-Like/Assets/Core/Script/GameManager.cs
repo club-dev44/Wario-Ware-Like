@@ -6,6 +6,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
+namespace Core
+{
+    
+
 public class GameManager : MonoBehaviour
 {
 
@@ -86,4 +90,5 @@ public class GameManager : MonoBehaviour
         operation.allowSceneActivation = false;
         return operation;
     }
+}
 }

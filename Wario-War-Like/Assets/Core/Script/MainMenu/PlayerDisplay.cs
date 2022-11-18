@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+namespace Core
+{
+    
 public class PlayerDisplay : MonoBehaviour
 {
     [SerializeField]
@@ -24,4 +27,5 @@ public class PlayerDisplay : MonoBehaviour
     {
         players[playerIndex].GetComponent<Image>().color = Color.green;
     }
+}
 }

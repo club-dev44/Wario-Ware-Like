@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace Core
+{
 public class RevenirMenu : MonoBehaviour
 {
     private GameManager gameManager;
@@ -17,4 +19,5 @@ public class RevenirMenu : MonoBehaviour
         gameManager.sceneMenu();
     }
 
+}
 }
