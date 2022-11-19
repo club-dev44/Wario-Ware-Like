@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+namespace Core
+{
+    
 public class MenUtils : MonoBehaviour
 {
     public void Quit()
@@ -14,4 +17,5 @@ public class MenUtils : MonoBehaviour
     {
         SceneManager.LoadScene("Menus");
     }
+}
 }
