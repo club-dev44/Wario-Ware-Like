@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -33,7 +34,8 @@ public class PlayerControll : MonoBehaviour
     [SerializeField] private GameManagerPong gameManagerPong;
 
     [SerializeField] private int playerIndex;
-    
+
+    [CanBeNull] private PlayerInput playerInput;
     
     private SpriteRenderer spriteRenderer;
     void Start()
@@ -44,18 +46,19 @@ public class PlayerControll : MonoBehaviour
     }
 
     private void GameManagerPongOngameStart() {
-        
+        playerInput =  PlayerConfigurationManager.Instance.PlayerConfigurations[playerIndex].Input;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(keyDown) && transform.position.y > min)
+        if(playerInput == null) return;
+        if (playerInput.actions["Bas"].IsPressed()  && transform.position.y > min)
         {
             transform.position += Vector3.down * speed * Time.deltaTime;
         }
 
-        if (Input.GetKey(keyUp) && transform.position.y < max)
+        if (playerInput.actions["Haut"].IsPressed() && transform.position.y < max)
         {
             transform.position += Vector3.up * speed * Time.deltaTime;
         }
