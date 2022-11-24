@@ -5325,15 +5325,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2a67ed379ea7340a4451854de779a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyUp: i
-  keyDown: k
   speed: 10
   max: 3.5
   min: -3.5
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   baseColor: {r: 0.9607844, g: 0.36078432, b: 0.36078432, a: 1}
   gameManagerPong: {fileID: 542290144}
-  playerIndex: 0
+  playerIndex: 1
+  animationFadeOnHit: {fileID: 324185328}
+  spriteRenderer: {fileID: 324185326}
 --- !u!212 &324185326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11119,8 +11119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2a67ed379ea7340a4451854de779a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyUp: w
-  keyDown: s
   speed: 10
   max: 3.5
   min: -3.5
@@ -11128,6 +11126,8 @@ MonoBehaviour:
   baseColor: {r: 0.9607844, g: 0.36078432, b: 0.36078432, a: 1}
   gameManagerPong: {fileID: 542290144}
   playerIndex: 0
+  animationFadeOnHit: {fileID: 1711651211}
+  spriteRenderer: {fileID: 1711651209}
 --- !u!212 &1711651209
 SpriteRenderer:
   m_ObjectHideFlags: 0

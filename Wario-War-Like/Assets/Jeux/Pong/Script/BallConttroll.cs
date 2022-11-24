@@ -9,53 +9,26 @@ namespace Pong
     
 public class BallConttroll : MonoBehaviour
 {
-    [SerializeField]
-    private float borderMinX;
+    [SerializeField] private float borderMinX;
+    [SerializeField] private float borderMaxX;
+    [SerializeField] private float borderMinY;
+    [SerializeField] private float borderMaxY;
+    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private GameObject player1;
+    [SerializeField] private GameObject player2;
+    [SerializeField] private GameManagerPong gameManager;
+    [SerializeField] private GameObject explosion;
 
-    [SerializeField]
-    private float borderMaxX;
-
-
-    [SerializeField]
-    private float borderMinY;
-
-    [SerializeField]
-    private float borderMaxY;
-
-
-    [SerializeField]
-    private float speed = 10.0f;
-
-
-    private float speedX = 0;
-    private float speedY = 0;
-
-
-    [SerializeField]
-    private GameObject player1;
-    [SerializeField]
-    private GameObject player2;
-
-   
-
+    
     private Collider2D player1Collider;
     private Collider2D player2Collider;
 
     private PlayerControll playerControllPlayer1;
     private PlayerControll playerControllPlayer2;
 
-
-    [SerializeField]
-    private ScoreManagerPong scoreManager;
-
-    [SerializeField]
-    private GameManagerPong gameManager;
-
-    [SerializeField]
-    private GameObject explosion;
-
-
-
+    private float speedX = 0;
+    private float speedY = 0;
+    
     public List<GameObject> icesGameObjects;
     public List<GameObject> fireGameObjects;
 

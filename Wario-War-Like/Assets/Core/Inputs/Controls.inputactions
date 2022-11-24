@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Haut",
+                    "name": "Up",
                     "type": "Button",
                     "id": "6dcbb5ef-749a-4eb3-8e9b-823b9ded6b37",
                     "expectedControlType": "Button",
@@ -42,9 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Bas",
+                    "name": "Down",
                     "type": "Button",
                     "id": "eb769d52-09d2-4450-a193-222623caeb6b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Valider",
+                    "type": "Button",
+                    "id": "2a0dda5d-811a-471a-9b10-615024d79525",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -125,18 +134,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Haut",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "1864b170-3cd2-4ba2-8cad-20c8f8aa1710",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Haut",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -147,7 +156,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Haut",
+                    "action": "Up",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -158,18 +167,40 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Bas",
+                    "action": "Down",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "ecf0ad13-58a9-427c-bba7-b6aaf9b914bc",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fd6fcff8-bbfe-4218-9158-51d0cd1dba35",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Bas",
+                    "action": "Valider",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "038accce-e526-4083-b75e-d84020390fa0",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Valider",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

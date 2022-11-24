@@ -8,25 +8,12 @@ namespace Pong
 
 public class FireGenerator : MonoBehaviour
 {
-    [SerializeField]
-    private Object firePrefab;
-
-    [SerializeField]
-    private BallConttroll ballConttroll;
-
-    [SerializeField]
-    private float xMin = -5;
-
-    [SerializeField]
-    private float xMax = 5;
-
-    [SerializeField]
-    private float yMin = -5;
-
-    [SerializeField]
-    private float yMax = 5;
-
-    
+    [SerializeField] private Object firePrefab;
+    [SerializeField] private BallConttroll ballConttroll;
+    [SerializeField] private float xMin = -5;
+    [SerializeField] private float xMax = 5;
+    [SerializeField] private float yMin = -5;
+    [SerializeField] private float yMax = 5;
     [SerializeField] private GameManagerPong gameManagerPong;
     
     private void Awake() {
@@ -50,7 +37,6 @@ public class FireGenerator : MonoBehaviour
 
             GameObject iceGameObject = (GameObject)Instantiate(firePrefab, new Vector3(x, y, 0), Quaternion.identity);
             ballConttroll.fireGameObjects.Add(iceGameObject);
-
         }
     }
 }

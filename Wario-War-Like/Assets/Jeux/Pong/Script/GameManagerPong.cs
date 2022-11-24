@@ -50,7 +50,7 @@ public class GameManagerPong : MonoBehaviour
     
 
 
-    private void Awake() {
+    private void Start() {
         GameManager.Instance.StartGame += newMatch;
     }
 
