@@ -41,7 +41,7 @@ public class LoadingSceneManager : MonoBehaviour
         loaderFill.value = 0.99f;
         yield return new WaitForSeconds(3.0f - (Time.time - startLoadingTimeStamp) );
         loadingSceneOperation.allowSceneActivation = true;
-
+        
         
     }
 
