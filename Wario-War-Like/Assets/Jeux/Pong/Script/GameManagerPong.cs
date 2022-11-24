@@ -51,12 +51,9 @@ public class GameManagerPong : MonoBehaviour
 
 
     private void Start() {
-        GameManager.Instance.StartGame += newMatch;
+        GameManager.Instance.subscribeToStartGame(newMatch);
     }
 
-    private void OnDestroy() {
-        GameManager.Instance.StartGame -= newMatch;
-    }
 
     public void newMatch()
     {

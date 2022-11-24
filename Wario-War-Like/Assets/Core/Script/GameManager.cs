@@ -24,7 +24,15 @@ public class GameManager : MonoBehaviour
 
     private PlayerConfigurationManager playerConfiguration;
 
-    public event Action StartGame;
+    private event Action StartGame;
+
+    public void subscribeToStartGame(Action action) {
+        if (playerConfiguration.AllPlayersReady) {
+            action.Invoke();
+        } else {
+            StartGame += action;
+        }
+    }
 
     private void Awake()
     {
@@ -49,6 +57,7 @@ public class GameManager : MonoBehaviour
     private void OnPlayerReady()
     {
         StartGame?.Invoke();
+        StartGame = null;
     }
 
     public void jeuSuivant(int[] resultatJoueur)
