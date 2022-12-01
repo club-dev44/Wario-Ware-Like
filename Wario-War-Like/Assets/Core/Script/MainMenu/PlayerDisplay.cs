@@ -12,6 +12,11 @@ public class PlayerDisplay : MonoBehaviour
     [SerializeField]
     private List<GameObject> players = new List<GameObject>(4);
 
+    [SerializeField]
+    private List<Color> playersColor = new List<Color>(4);
+
+    
+    
     private void Start()
     {
         PlayerConfigurationManager.Instance.inputManager.onPlayerJoined += OnPlayerJoin;
@@ -25,7 +30,7 @@ public class PlayerDisplay : MonoBehaviour
 
     public void OnPlayerReady(int playerIndex)
     {
-        players[playerIndex].GetComponent<Image>().color = Color.green;
+        players[playerIndex].GetComponent<Image>().color = playersColor[playerIndex];
     }
 
     public void reset() {

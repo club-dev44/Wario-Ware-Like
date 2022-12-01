@@ -2334,6 +2334,11 @@ MonoBehaviour:
   - {fileID: 21884176}
   - {fileID: 291917954}
   - {fileID: 2135156240}
+  playersColor:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 1, g: 0.9987, b: 0, a: 0}
 --- !u!1 &1837849061
 GameObject:
   m_ObjectHideFlags: 0
