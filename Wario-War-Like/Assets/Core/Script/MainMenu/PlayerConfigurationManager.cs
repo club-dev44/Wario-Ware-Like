@@ -19,6 +19,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public static PlayerConfigurationManager Instance { get; private set; }
 
+    
     public event Action<int> playerReady;
 
     private bool allPlayersReady;
@@ -46,6 +47,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
         inputManager = GetComponent<PlayerInputManager>();
         inputManager.onPlayerJoined += OnPlayerJoin;
+        inputManager.DisableJoining();
     }
 
     public void OnPlayerJoin(PlayerInput playerInput)
@@ -67,6 +69,7 @@ public class PlayerConfigurationManager : MonoBehaviour
             AllPlayersReady = true;
         }
     }
+    
 
     public void RemoveAllPlayersFromGame()
     {
@@ -74,6 +77,22 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void reset() {
+        RemoveAllPlayersFromGame();
+        allPlayersReady = false;
+        this.playerConfigs.Clear();
+        inputManager.DisableJoining();
+    }
+
+
+    public void enableJoining() {
+        inputManager.EnableJoining();
+    }
+
+    public void disableJoining() {
+        inputManager.DisableJoining();
     }
 }
 

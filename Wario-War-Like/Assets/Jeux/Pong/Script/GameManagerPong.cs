@@ -86,7 +86,11 @@ public class GameManagerPong : MonoBehaviour
     IEnumerator Quit(int[] resultat)
     {
         yield return new WaitForSeconds(5.0f);
-        GameManager.Instance.jeuSuivant(resultat);
+        if (resultat[0] == 5) {
+            GameManager.Instance.jeuSuivant(new []{100, 0});
+        } else {
+            GameManager.Instance.jeuSuivant(new []{0, 100});
+        }
     }
 
     IEnumerator compteARebourNewMatch()

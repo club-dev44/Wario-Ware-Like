@@ -8,6 +8,9 @@ namespace Core
     
 public class MenUtils : MonoBehaviour
 {
+
+    const string LOADINGSCENENAME = "LoadingScene";
+
     public void Quit()
     {
         Application.Quit();
@@ -16,6 +19,17 @@ public class MenUtils : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("Menus");
+    }
+
+    public void play() {
+        if (PlayerConfigurationManager.Instance.AllPlayersReady) {
+            SceneManager.LoadScene(LOADINGSCENENAME);
+        }
+
+    }
+
+    public void clearPlayers() {
+        PlayerConfigurationManager.Instance.reset();
     }
 }
 }
