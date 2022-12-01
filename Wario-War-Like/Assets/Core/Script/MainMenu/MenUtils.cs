@@ -27,5 +27,9 @@ public class MenUtils : MonoBehaviour
         }
 
     }
+
+    public void clearPlayers() {
+        PlayerConfigurationManager.Instance.reset();
+    }
 }
 }

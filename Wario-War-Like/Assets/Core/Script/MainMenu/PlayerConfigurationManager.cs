@@ -47,6 +47,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
         inputManager = GetComponent<PlayerInputManager>();
         inputManager.onPlayerJoined += OnPlayerJoin;
+        inputManager.DisableJoining();
     }
 
     public void OnPlayerJoin(PlayerInput playerInput)
@@ -76,6 +77,22 @@ public class PlayerConfigurationManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void reset() {
+        RemoveAllPlayersFromGame();
+        allPlayersReady = false;
+        this.playerConfigs.Clear();
+        inputManager.DisableJoining();
+    }
+
+
+    public void enableJoining() {
+        inputManager.EnableJoining();
+    }
+
+    public void disableJoining() {
+        inputManager.DisableJoining();
     }
 }
 

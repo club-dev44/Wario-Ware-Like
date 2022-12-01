@@ -27,5 +27,11 @@ public class PlayerDisplay : MonoBehaviour
     {
         players[playerIndex].GetComponent<Image>().color = Color.green;
     }
+
+    public void reset() {
+        foreach (var player in players) {
+            player.GetComponent<Image>().color =Color.white;
+        }
+    }
 }
 }
