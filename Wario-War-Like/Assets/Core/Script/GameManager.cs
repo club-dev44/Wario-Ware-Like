@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private readonly int nbJeuParManche = 2;  
     
     private PlayerConfigurationManager playerConfiguration;
-
+    [SerializeField] public int[] scoresJoueurs;
+    [SerializeField] private readonly string finalSceneName = "FinalScoreScene";
+    
     private event Action StartGame;
 
     public void subscribeToStartGame(Action action) {
@@ -57,17 +59,21 @@ public class GameManager : MonoBehaviour
             OnPlayerReady();
         else
             playerConfiguration.allPlayersAreReady += OnPlayerReady;
+        
     }
 
     private void OnPlayerReady()
     {
         StartGame?.Invoke();
         StartGame = null;
+        scoresJoueurs = new int[playerConfiguration.PlayerConfigurations.Count];
     }
 
     public void jeuSuivant(int[] resultatJoueur)
     {
-        //Todo passé au score manager le resultat des joueurs
+        for (int i = 0; i < resultatJoueur.Length; i++) {
+            scoresJoueurs[i] += resultatJoueur[i];
+        }
         SceneManager.LoadScene(nomLoadingScene);
     }
 
@@ -93,7 +99,7 @@ public class GameManager : MonoBehaviour
         actualGameIndex++;
         AsyncOperation operation;
         operation = actualGameIndex >= jeuxChoisi.Count ? 
-            SceneManager.LoadSceneAsync(0) :
+            SceneManager.LoadSceneAsync(finalSceneName) :
             SceneManager.LoadSceneAsync(jeuxChoisi[actualGameIndex].sceneName);
         operation.allowSceneActivation = false;
         return operation;
