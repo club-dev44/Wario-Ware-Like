@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Core;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Core
 {
@@ -16,6 +18,7 @@ public class scoreUiManager : MonoBehaviour
     void Start() {
         gameManager = GameManager.Instance;
         int playerIndex = 0;
+        Array.Sort(gameManager.scoresJoueurs);
         foreach (int score in gameManager.scoresJoueurs) {
             GameObject cell = (GameObject)Instantiate(cellScorePrefab, this.transform);
             cell.GetComponent<CellManager>().setScoreAndPlayer(playerIndex, score);

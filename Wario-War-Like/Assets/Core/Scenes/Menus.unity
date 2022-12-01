@@ -1007,6 +1007,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88557e835ed81cb4ca197c57b3151331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &653940777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3969502488167270856, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+  m_PrefabInstance: {fileID: 3969502488600261427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726647679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retour
+  m_text: Annuler
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1806,6 +1817,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 653940777}
+        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInputManager, Unity.InputSystem
+        m_MethodName: EnableJoining
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1113754548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2265,7 +2288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814830359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2459,6 +2482,7 @@ GameObject:
   - component: {fileID: 1901232399}
   - component: {fileID: 1901232398}
   - component: {fileID: 1901232397}
+  - component: {fileID: 1901232400}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -2555,6 +2579,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1901232400}
+        m_TargetAssemblyTypeName: Core.MenUtils, Assembly-CSharp
+        m_MethodName: clearPlayers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1814830360}
+        m_TargetAssemblyTypeName: Core.PlayerDisplay, Assembly-CSharp
+        m_MethodName: reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1901232398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,6 +2641,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901232395}
   m_CullTransparentMesh: 1
+--- !u!114 &1901232400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901232395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88557e835ed81cb4ca197c57b3151331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056532151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,7 +2669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2056532152
 RectTransform:
   m_ObjectHideFlags: 0

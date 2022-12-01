@@ -71,6 +71,16 @@ public class GameManager : MonoBehaviour
 
     public void jeuSuivant(int[] resultatJoueur)
     {
+        
+        if (playerConfiguration.inputManager.playerCount > 1) {
+            int sum = resultatJoueur.Sum();
+            if (sum < 100) throw new Exception("The game finish without distributing the 100 points");
+        } else {
+            if (resultatJoueur[0] < 50) {
+                actualGameIndex = jeuxChoisi.Count;
+                SceneManager.LoadScene(nomLoadingScene);
+            }
+        }
         for (int i = 0; i < resultatJoueur.Length; i++) {
             scoresJoueurs[i] += resultatJoueur[i];
         }
