@@ -19,6 +19,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public static PlayerConfigurationManager Instance { get; private set; }
 
+    
     public event Action<int> playerReady;
 
     private bool allPlayersReady;
@@ -67,6 +68,7 @@ public class PlayerConfigurationManager : MonoBehaviour
             AllPlayersReady = true;
         }
     }
+    
 
     public void RemoveAllPlayersFromGame()
     {
