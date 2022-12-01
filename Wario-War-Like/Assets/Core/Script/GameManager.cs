@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
     private string nomLoadingScene = "loadingScene";
 
     [SerializeField] private List<GameData> jeuxChoisi = new List<GameData>();
-    [SerializeField] private int actualGameIndex;
-
+    public int actualGameIndex { get; private set; }
+    [SerializeField] private readonly int nbJeuParManche = 2;  
+    
     private PlayerConfigurationManager playerConfiguration;
 
     private event Action StartGame;
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
     {
         List<GameData> jeuxPossible = scenesDeJeu.FindAll(data => data.nbJoueurs.Any(nbJ => nbJ == nbJoueur));
         jeuxChoisi.Clear();
-        for (int i = 0; i < nbJeu; i++)
+        for (int i = 0; i <= nbJeu; i++)
         {
             int randomIndex = Random.Range(0, jeuxPossible.Count - 1);
             jeuxChoisi.Add(jeuxPossible[randomIndex]);
@@ -88,16 +89,15 @@ public class GameManager : MonoBehaviour
 
     public AsyncOperation chargerProchainJeuxAsync()
     {
-        if (jeuxChoisi.Count == 0) choisirJeux(1, 10);
+        if (jeuxChoisi.Count == 0) choisirJeux(1, nbJeuParManche);
         actualGameIndex++;
-        if (actualGameIndex >= jeuxChoisi.Count)
-        {
-            SceneManager.LoadScene(0);
-            return null;
-        }
-        AsyncOperation operation = SceneManager.LoadSceneAsync(jeuxChoisi[actualGameIndex].sceneName);
+        AsyncOperation operation;
+        operation = actualGameIndex >= jeuxChoisi.Count ? 
+            SceneManager.LoadSceneAsync(0) :
+            SceneManager.LoadSceneAsync(jeuxChoisi[actualGameIndex].sceneName);
         operation.allowSceneActivation = false;
         return operation;
     }
+
 }
 }
