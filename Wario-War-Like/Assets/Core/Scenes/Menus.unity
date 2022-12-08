@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1113754545}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &34734204
@@ -353,6 +353,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40326439}
   m_CullTransparentMesh: 1
+--- !u!1001 &61918546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560860, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809891528976560863, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
+      propertyPath: m_Name
+      value: UI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f8a48c83ec24af4b9a036ae1fdc27eb, type: 3}
 --- !u!1 &291917954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,17 +1064,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88557e835ed81cb4ca197c57b3151331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &653940777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3969502488167270856, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
-  m_PrefabInstance: {fileID: 3969502488600261427}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &726647679
@@ -1817,9 +1865,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 653940777}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInputManager, Unity.InputSystem
-        m_MethodName: EnableJoining
+      - m_Target: {fileID: 2056532153}
+        m_TargetAssemblyTypeName: Core.MenUtils, Assembly-CSharp
+        m_MethodName: enableJoiningForPlayerManager
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 594717824}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2608,6 +2668,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1113754547}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: Select
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1901232398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,7 +2895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2114232619}
   m_Layer: 0
-  m_Name: UI
+  m_Name: UI menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

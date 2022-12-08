@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     public AsyncOperation chargerProchainJeuxAsync()
     {
-        if (jeuxChoisi.Count == 0) choisirJeux(1, nbJeuParManche);
+        if (jeuxChoisi.Count == 0) choisirJeux(playerConfiguration.inputManager.playerCount, nbJeuParManche);
         actualGameIndex++;
         AsyncOperation operation;
         operation = actualGameIndex >= jeuxChoisi.Count ? 

@@ -13,6 +13,7 @@ public class scoreUiManager : MonoBehaviour
 {
     private GameManager gameManager;
     [SerializeField] private Object cellScorePrefab;
+    [SerializeField] private NotificationManager notificationManager;
     
     // Start is called before the first frame update
     void Start() {

@@ -65,7 +65,7 @@ public class PlayerConfigurationManager : MonoBehaviour
         if (playerConfigs.TrueForAll(pi => pi.IsReady))
         {
             inputManager.DisableJoining();
-            Debug.Log("Everyone is ready! Let's go!!");
+            NotificationManager.LastInstanceCreated.addNotification("Everyone is ready! Let's go!!");
             AllPlayersReady = true;
         }
     }
