@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Core
@@ -29,7 +30,14 @@ public class LoadingSceneManager : MonoBehaviour
         yield return null;
 
         startLoadingTimeStamp = Time.time;
-        loadingSceneOperation = gameManager.chargerProchainJeuxAsync();
+        try {
+            loadingSceneOperation = gameManager.chargerProchainJeuxAsync();
+        }
+        catch (GamesGenerationException e) {
+            Debug.Log(e);
+            SceneManager.LoadScene(0);
+            yield break;
+        }
         while (!loadingSceneOperation.isDone)
         {
             Debug.Log("Loading: " + loadingSceneOperation.progress);

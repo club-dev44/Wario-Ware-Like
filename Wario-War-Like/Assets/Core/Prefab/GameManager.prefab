@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5248537865385138188
 MonoBehaviour:
@@ -47,9 +47,6 @@ MonoBehaviour:
   scenesDeJeu:
   - sceneName: Pong
     consigne: il suffit de battre ton adversaire
-    nbJoueurs: 0200000001000000
-  - sceneName: Jeu2Scene
-    consigne: "il suffit de click\xE9 sur gagner ici"
-    nbJoueurs: 0200000001000000
+    nbJoueurs: 02000000
   jeuxChoisi: []
-  actualGameIndex: 0
+  scoresJoueurs: 
