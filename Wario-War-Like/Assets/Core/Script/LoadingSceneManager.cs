@@ -16,6 +16,9 @@ public class LoadingSceneManager : MonoBehaviour
     [SerializeField]
     private Slider loaderFill;
 
+    [SerializeField] private NotificationManager notificationManager;
+
+
     private float startLoadingTimeStamp;
     private void Awake()
     {
@@ -34,7 +37,7 @@ public class LoadingSceneManager : MonoBehaviour
             loadingSceneOperation = gameManager.chargerProchainJeuxAsync();
         }
         catch (GamesGenerationException e) {
-            Debug.Log(e);
+            notificationManager.addNotification(e.Message, NotificationType.ERROR);
             SceneManager.LoadScene(0);
             yield break;
         }
