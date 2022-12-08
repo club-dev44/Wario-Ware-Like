@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,10 +18,13 @@ public class PlayerDisplay : MonoBehaviour
 
     
     
-    private void Start()
-    {
+    private void Start() {
         PlayerConfigurationManager.Instance.inputManager.onPlayerJoined += OnPlayerJoin;
         PlayerConfigurationManager.Instance.playerReady += OnPlayerReady;
+        foreach (PlayerConfiguration playerConfiguration in PlayerConfigurationManager.Instance.PlayerConfigurations) {
+            PlayerInput playerInput = playerConfiguration.Input;
+            players[playerInput.playerIndex].GetComponent<Image>().color = playersColor[playerInput.playerIndex];
+        }
     }
 
     public void OnPlayerJoin(PlayerInput playerInput)
@@ -31,6 +35,11 @@ public class PlayerDisplay : MonoBehaviour
     public void OnPlayerReady(int playerIndex)
     {
         players[playerIndex].GetComponent<Image>().color = playersColor[playerIndex];
+    }
+
+    private void OnDestroy() {
+        PlayerConfigurationManager.Instance.inputManager.onPlayerJoined -= OnPlayerJoin;
+        PlayerConfigurationManager.Instance.playerReady -= OnPlayerReady;
     }
 
     public void reset() {

@@ -1066,17 +1066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88557e835ed81cb4ca197c57b3151331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &653940777 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3969502488167270856, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
-  m_PrefabInstance: {fileID: 3969502488600261427}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &726647679
 GameObject:
   m_ObjectHideFlags: 0
@@ -1876,9 +1865,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 653940777}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInputManager, Unity.InputSystem
-        m_MethodName: EnableJoining
+      - m_Target: {fileID: 2056532153}
+        m_TargetAssemblyTypeName: Core.MenUtils, Assembly-CSharp
+        m_MethodName: enableJoiningForPlayerManager
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

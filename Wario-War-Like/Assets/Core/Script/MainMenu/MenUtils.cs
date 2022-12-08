@@ -28,6 +28,10 @@ public class MenUtils : MonoBehaviour
 
     }
 
+    public void enableJoiningForPlayerManager() {
+        PlayerConfigurationManager.Instance.enableJoining();
+    }
+
     public void clearPlayers() {
         PlayerConfigurationManager.Instance.reset();
     }

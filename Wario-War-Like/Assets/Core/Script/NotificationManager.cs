@@ -8,6 +8,14 @@ namespace Core
 {
     public class NotificationManager : MonoBehaviour
     {
+        
+        public static NotificationManager LastInstanceCreated { get; private set; }
+
+        
+        private void Awake() {
+            LastInstanceCreated = this;
+        }
+        
 
         [SerializeField] private Vector3 positionNewPopUp;
         [SerializeField] private Vector3 scaleNewPopUp;
