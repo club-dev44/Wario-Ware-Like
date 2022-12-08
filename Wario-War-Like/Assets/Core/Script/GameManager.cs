@@ -96,6 +96,9 @@ public class GameManager : MonoBehaviour
     {
         List<GameData> jeuxPossible = scenesDeJeu.FindAll(data => data.nbJoueurs.Any(nbJ => nbJ == nbJoueur));
         jeuxChoisi.Clear();
+        if (jeuxPossible.Count <= 0) {
+            throw new GamesGenerationException("impossible de trouver " + nbJeu + " jeu avec " + nbJoueur + " joueurs");
+        }
         for (int i = 0; i <= nbJeu; i++)
         {
             int randomIndex = Random.Range(0, jeuxPossible.Count - 1);
