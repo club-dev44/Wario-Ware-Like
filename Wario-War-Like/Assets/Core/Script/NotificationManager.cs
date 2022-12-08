@@ -15,7 +15,17 @@ namespace Core
         private void Awake() {
             LastInstanceCreated = this;
         }
-        
+
+        private void OnEnable() {
+            Application.logMessageReceived +=ApplicationOnlogMessageReceived;        }
+
+        private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type) {
+            addNotification(condition, NotificationType.ERROR);
+        }
+
+        private void OnDisable() {
+            Application.logMessageReceived -= ApplicationOnlogMessageReceived;
+        }
 
         [SerializeField] private Vector3 positionNewPopUp;
         [SerializeField] private Vector3 scaleNewPopUp;
