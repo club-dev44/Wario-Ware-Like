@@ -55,23 +55,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         playerConfiguration = PlayerConfigurationManager.Instance;
-        if (playerConfiguration.AllPlayersReady)
-            OnPlayerReady();
-        else
-            playerConfiguration.allPlayersAreReady += OnPlayerReady;
-        
+        if(playerConfiguration.AllPlayersReady)
+            scoresJoueurs = new int[playerConfiguration.PlayerConfigurations.Count];
+        playerConfiguration.allPlayersAreReady += PlayerConfigurationOnallPlayersAreReady ;
     }
 
-    private void OnPlayerReady()
-    {
+    private void PlayerConfigurationOnallPlayersAreReady() {
         StartGame?.Invoke();
         StartGame = null;
         scoresJoueurs = new int[playerConfiguration.PlayerConfigurations.Count];
     }
 
+
     public void jeuSuivant(int[] resultatJoueur)
     {
-        
         if (playerConfiguration.inputManager.playerCount > 1) {
             int sum = resultatJoueur.Sum();
             if (sum < 100) throw new Exception("The game finish without distributing the 100 points");

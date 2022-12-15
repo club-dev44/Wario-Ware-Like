@@ -43,7 +43,6 @@ public class LoadingSceneManager : MonoBehaviour
         }
         while (!loadingSceneOperation.isDone)
         {
-            Debug.Log("Loading: " + loadingSceneOperation.progress);
             loaderFill.value = Mathf.Lerp(loaderFill.value,loadingSceneOperation.progress,Time.deltaTime/5);
             if (loadingSceneOperation.progress >= 0.9f)
                 break;
