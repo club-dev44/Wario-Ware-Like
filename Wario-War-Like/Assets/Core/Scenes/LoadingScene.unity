@@ -1039,6 +1039,30 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.data[1].consigne
+      value: il suffit de battre ton adversaire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.data[1].sceneName
+      value: RedAlertScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.data[1].nbJoueurs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.data[1].nbJoueurs.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248537865385138188, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
+      propertyPath: scenesDeJeu.Array.data[1].nbJoueurs.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5248537865385138189, guid: 2fee4dbc16ada8c428fd9ab82c8199cb, type: 3}
       propertyPath: m_RootOrder
       value: 0
