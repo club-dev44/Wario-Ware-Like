@@ -295,6 +295,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 8409114535738883262, guid: 9691fa6feb3b02a408f0eb35272acc3b, type: 3}
   camera: {fileID: 519420028}
   levelsManager: {fileID: 539218433}
+  animation: {fileID: 1321680396}
   winnerText: {fileID: 361309721}
 --- !u!4 &395047356
 Transform:
@@ -522,6 +523,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d46c6f90f42265d4593892aefffbe7f3, type: 3}
+--- !u!1 &1321680396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8476811531992238099, guid: d46c6f90f42265d4593892aefffbe7f3, type: 3}
+  m_PrefabInstance: {fileID: 1321680395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1453227281
 GameObject:
   m_ObjectHideFlags: 0
