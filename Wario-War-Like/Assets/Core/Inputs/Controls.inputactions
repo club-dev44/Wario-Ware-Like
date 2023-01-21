@@ -205,6 +205,56 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "ProtectTheWallActionMap",
+            "id": "4b48aebd-a09a-445d-a89d-bf613bf67e78",
+            "actions": [
+                {
+                    "name": "SHOOT",
+                    "type": "Button",
+                    "id": "6d483928-1523-40a6-b00e-d02e6a9b3749",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "074ef046-9048-4ba1-9693-9bdd00594376",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SHOOT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f160d9bc-48e0-4086-bc34-f726ce7a0766",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SHOOT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bde61c3-466b-472c-ab12-8231595b137c",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SHOOT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

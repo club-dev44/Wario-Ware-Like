@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private event Action StartGame;
 
     public void subscribeToStartGame(Action action) {
+        playerConfiguration = PlayerConfigurationManager.Instance;
         if (playerConfiguration.AllPlayersReady) {
             action.Invoke();
         } else {

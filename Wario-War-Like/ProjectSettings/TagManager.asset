@@ -13,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Wall
+  - Background
+  - Monster
   - 
   - 
   - 
@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2153777553
+    locked: 0
+  - name: Wall
+    uniqueID: 3945077123
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Monster
+    uniqueID: 3153257071
+    locked: 0
+  - name: Player
+    uniqueID: 216904167
     locked: 0
