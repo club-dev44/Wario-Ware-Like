@@ -11,24 +11,26 @@ namespace ProtectTheWall
         public PlayerConfiguration playerConfiguration;
 
         [SerializeField]
-        private GameObject bulletPrefab;
+        private GameObject basicBulletPrefab;
         [SerializeField]
         private float maxRotationDegree;
         [SerializeField]
         private float normalRotationSpeed, slowedRotationSpeed, slowDuration;
-        [SerializeField]
-        private float bulletPower;
 
         private float currentRotationSpeed;
+        private Queue<GameObject> magazine;
 
         private void Start()
         {
+            magazine = new Queue<GameObject>();
+            currentRotationSpeed = normalRotationSpeed;
             StartCoroutine(nameof(BarrelRotation));
             playerConfiguration.Input.actions["SHOOT"].performed += Shoot;
         }
 
         IEnumerator BarrelRotation()
         {
+            transform.rotation = Quaternion.Euler(0, 0, Random.Range(-maxRotationDegree / 2, maxRotationDegree / 2));
             float _leftOrRightRotation = 1;
             while (true)
             {
@@ -43,8 +45,9 @@ namespace ProtectTheWall
 
         private void Shoot(InputAction.CallbackContext ctxt)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position + transform.TransformDirection(Vector3.up), Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().AddForce(transform.TransformDirection(bulletPower * Vector3.up));
+            StopCoroutine(nameof(SlowRotation));
+            GameObject _bullet = magazine.Count > 0 ? magazine.Dequeue() : basicBulletPrefab;
+            Instantiate(_bullet, transform.position + transform.TransformDirection(Vector3.up), Quaternion.Euler(transform.TransformDirection(Vector3.right)));
             StartCoroutine(nameof(SlowRotation));
         }
 
@@ -53,6 +56,11 @@ namespace ProtectTheWall
             currentRotationSpeed = slowedRotationSpeed;
             yield return new WaitForSeconds(slowDuration);
             currentRotationSpeed = normalRotationSpeed;
+        }
+
+        public void AddBulletToMagazine(GameObject bulletPrefab)
+        {
+            magazine.Enqueue(bulletPrefab);
         }
     }
 }

@@ -8,6 +8,16 @@ namespace ProtectTheWall
     {
         public int DamageAmount;
 
+        [SerializeField]
+        private Rigidbody2D rigidBody;
+        [SerializeField]
+        private float power;
+
+        private void Start()
+        {
+            rigidBody.AddRelativeForce(power * Vector3.up);
+        }
+
         public void EnemyCollided()
         {
             Destroy(gameObject);

@@ -130,12 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7752f78201c294c950c90bae15f668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2337523094646876727, guid: 3aa7c468423a2474b9385940fd6074fd, type: 3}
+  basicBulletPrefab: {fileID: 2337523094646876727, guid: 3aa7c468423a2474b9385940fd6074fd, type: 3}
   maxRotationDegree: 70
-  normalRotationSpeed: 75
+  normalRotationSpeed: 100
   slowedRotationSpeed: 5
-  slowDuration: 1
-  bulletPower: 400
+  slowDuration: 0.25
 --- !u!1 &8812253517386204212
 GameObject:
   m_ObjectHideFlags: 0

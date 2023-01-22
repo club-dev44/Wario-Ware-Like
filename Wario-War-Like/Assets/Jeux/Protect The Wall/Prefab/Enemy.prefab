@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5198871879874843417}
   - component: {fileID: 1294010097707946666}
   - component: {fileID: 660643323320398973}
+  - component: {fileID: 4716341296499246045}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -117,7 +118,7 @@ Transform:
   m_Children:
   - {fileID: 2096926118471976435}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5198871879874843417
 Rigidbody2D:
@@ -153,8 +154,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.041403055, y: -0.07763076}
-  m_Size: {x: 0.9140308, y: 1.1552615}
+  m_Offset: {x: -0.024442852, y: -0.09216811}
+  m_Size: {x: 0.79288614, y: 1.0389626}
   m_Direction: 0
 --- !u!114 &660643323320398973
 MonoBehaviour:
@@ -171,3 +172,23 @@ MonoBehaviour:
   rigidBody: {fileID: 5198871879874843417}
   moveSpeed: 1
   health: 5
+--- !u!95 &4716341296499246045
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684262157680774072}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d81117a5936bd5446929ee4cbe837efa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

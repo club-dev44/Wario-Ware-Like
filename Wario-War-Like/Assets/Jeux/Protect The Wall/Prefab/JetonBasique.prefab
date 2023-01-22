@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4829963125533888362}
   - component: {fileID: -5444418181751713740}
   m_Layer: 10
-  m_Name: Jeton
+  m_Name: JetonBasique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DamageAmount: 1
+  rigidBody: {fileID: -5444418181751713740}
+  power: 750
 --- !u!58 &4829963125533888362
 CircleCollider2D:
   m_ObjectHideFlags: 0
