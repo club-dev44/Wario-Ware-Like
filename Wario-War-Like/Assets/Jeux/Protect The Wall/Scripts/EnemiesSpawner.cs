@@ -8,14 +8,14 @@ namespace ProtectTheWall
     public class EnemiesSpawner : MonoBehaviour
     {
         [SerializeField]
-        private GameObject ennemyPrefab;
+        private ProtectTheWallManger gameManager;
         [SerializeField]
         private Transform leftPosition, rightPosition;
         [SerializeField]
         private float yPosition;
 
         [SerializeField]
-        private float spawnRate;
+        private float spawnRatePerPlayer;
 
         private float distanceBetweenBorder
         {
@@ -38,13 +38,13 @@ namespace ProtectTheWall
             while(true)
             {
                 SpawnMob();
-                yield return new WaitForSeconds(spawnRate);
+                yield return new WaitForSeconds(spawnRatePerPlayer * PlayerConfigurationManager.Instance.PlayerCount);
             }
         }
 
         private void SpawnMob()
         {
-            Instantiate(ennemyPrefab, new Vector3(Random.Range(leftPosition.position.x, rightPosition.position.x), yPosition), Quaternion.identity, transform);
+            Instantiate(gameManager.GetAMobToSpawn(), new Vector3(Random.Range(leftPosition.position.x, rightPosition.position.x), yPosition), Quaternion.identity, transform);
         }
     }
 

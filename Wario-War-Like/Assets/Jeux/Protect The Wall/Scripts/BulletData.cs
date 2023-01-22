@@ -12,6 +12,8 @@ namespace ProtectTheWall
         private Rigidbody2D rigidBody;
         [SerializeField]
         private float power;
+        [SerializeField]
+        private float lifeTimeAfterBounce;
 
         private void Start()
         {
@@ -21,6 +23,14 @@ namespace ProtectTheWall
         public void EnemyCollided()
         {
             Destroy(gameObject);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+            {
+                Destroy(gameObject, lifeTimeAfterBounce);
+            }
         }
     }
 

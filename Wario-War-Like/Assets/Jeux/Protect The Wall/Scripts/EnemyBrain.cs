@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace ProtectTheWall
         private Rigidbody2D rigidBody;
         [SerializeField]
         private float moveSpeed;
-
         [SerializeField]
         private int health;
 
@@ -22,10 +22,18 @@ namespace ProtectTheWall
                 health = value;
                 if (health <= 0)
                 {
-                    Destroy(gameObject);
+                    if (Dead == null) Destroy(gameObject);
+                    else
+                    {
+                        StopCoroutine(nameof(Walk));
+                        rigidBody.simulated = false;
+                        Dead.Invoke();
+                    }
                 }
             }
         }
+
+        public event Action Dead;
 
         // Start is called before the first frame update
         void Start()

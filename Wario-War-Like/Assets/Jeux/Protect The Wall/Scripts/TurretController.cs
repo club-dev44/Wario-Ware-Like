@@ -9,9 +9,8 @@ namespace ProtectTheWall
     public class TurretController : MonoBehaviour
     {
         public PlayerConfiguration playerConfiguration;
-
-        [SerializeField]
-        private GameObject basicBulletPrefab;
+        public ProtectTheWallManger gameManager;
+        
         [SerializeField]
         private float maxRotationDegree;
         [SerializeField]
@@ -46,8 +45,7 @@ namespace ProtectTheWall
         private void Shoot(InputAction.CallbackContext ctxt)
         {
             StopCoroutine(nameof(SlowRotation));
-            GameObject _bullet = magazine.Count > 0 ? magazine.Dequeue() : basicBulletPrefab;
-            Instantiate(_bullet, transform.position + transform.TransformDirection(Vector3.up), Quaternion.Euler(transform.TransformDirection(Vector3.right)));
+            Instantiate(gameManager.GetCurrentBullet(), transform.position + transform.TransformDirection(Vector3.up), transform.rotation);
             StartCoroutine(nameof(SlowRotation));
         }
 
@@ -56,11 +54,6 @@ namespace ProtectTheWall
             currentRotationSpeed = slowedRotationSpeed;
             yield return new WaitForSeconds(slowDuration);
             currentRotationSpeed = normalRotationSpeed;
-        }
-
-        public void AddBulletToMagazine(GameObject bulletPrefab)
-        {
-            magazine.Enqueue(bulletPrefab);
         }
     }
 }

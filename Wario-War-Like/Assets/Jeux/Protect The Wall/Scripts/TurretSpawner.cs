@@ -8,7 +8,9 @@ namespace ProtectTheWall
     public class TurretSpawner : MonoBehaviour
     {
         [SerializeField]
-        private GameObject playerPrefab;
+        private ProtectTheWallManger gameManager;
+        [SerializeField]
+        private GameObject playerPrefab, turretBase;
         [SerializeField]
         private Transform LeftPosition, RightPosition;
         [SerializeField]
@@ -42,8 +44,12 @@ namespace ProtectTheWall
                 _playerPosition += _step;
                 child.position = new Vector3(_playerPosition, yPosition);
             }
-            _player.GetComponent<TurretController>().playerConfiguration = playerConf;
+            Instantiate(turretBase, new Vector3(_playerPosition, yPosition), Quaternion.identity);
+            TurretController _controller = _player.GetComponent<TurretController>();
+            _controller.playerConfiguration = playerConf;
+            _controller.gameManager = gameManager;
             playerConf.Input.SwitchCurrentActionMap("ProtectTheWallActionMap");
+            
         }
     }
 }

@@ -17,6 +17,8 @@ namespace Core
         private List<PlayerConfiguration> playerConfigs;
         public IReadOnlyList<PlayerConfiguration> PlayerConfigurations { get => playerConfigs; }
 
+        public int PlayerCount { get => inputManager.playerCount; }
+
         public static PlayerConfigurationManager Instance { get; private set; }
 
         [SerializeField] private bool enableJoiningByDefault;
