@@ -14,6 +14,7 @@ namespace RedAlert
         [SerializeField] private Object playerPrefab;
         [SerializeField] private GameObject camera;
         [SerializeField] private LevelsManager levelsManager;
+        [SerializeField] private TMP_Text textChrono;
         private int nbPlayer = 0;
         private int actualNbPlayer;
         private List<PlayerController> players = new List<PlayerController>();
@@ -26,6 +27,10 @@ namespace RedAlert
         private bool gameRunning = false;
         private bool animTerminer = false;
         private float durationAnimation = 5.1f;
+        private float timestampStartTime;
+
+        private List<int> remainingPlayers = new List<int>();
+        
         private void Start() {
             GameManager.Instance.subscribeToStartGame(onReadyToStartGame);
             StartCoroutine(animationWaiting());
@@ -49,6 +54,7 @@ namespace RedAlert
             if(gameRunning) return;
             gameRunning = true;
             animation.SetActive(false);
+            setChrono();
             PlayerConfigurationManager playerConfigurationManager = PlayerConfigurationManager.Instance;
             IReadOnlyList<PlayerConfiguration> playerConfigurations = playerConfigurationManager.PlayerConfigurations;
             CameraPathFollower cameraPathFollower = camera.GetComponent<CameraPathFollower>();
@@ -63,7 +69,9 @@ namespace RedAlert
                 playerComponent.diedEvent += onPlayerDied;
                 cameraPathFollower.players.Add(player.transform);
                 players.Add(playerComponent);
+                remainingPlayers.Add(index);
                 index++;
+                
             }
 
             nbPlayer = playerConfigurations.Count;
@@ -71,16 +79,47 @@ namespace RedAlert
             camera.SetActive(true);
         }
 
+        private void Update() {
+            if (gameRunning) {
+                updateChrono();
+            }
+        }
+
+        private void setChrono() {
+            timestampStartTime = Time.time;
+            textChrono.gameObject.SetActive(true);
+            updateChrono();
+        }
+
+        private void updateChrono() {
+            float elapsedTime = Time.time - timestampStartTime;
+            textChrono.SetText((Mathf.Floor(elapsedTime / 60)).ToString("0") + ":" + (elapsedTime % 60).ToString("0.00"));
+        }
+
         private void onPlayerDied(int index) {
             if(jeuFini) return;
             actualNbPlayer--;
+            remainingPlayers.Remove(index);
             if (actualNbPlayer <= 1) {
                 jeuFini = true;
-                winner = index;
-                winnerText.SetText("Bravo au joueur " + winner);
+                if (remainingPlayers.Count == 0) {
+                    winner = index;
+                } else {
+                    winner = remainingPlayers[0];
+                }
+                gameRunning = false;
+                if (players.Count > 1) {
+                    winnerText.SetText("Bravo au joueur " + winner );
+                } else {
+                    float elapsedTime = Time.time - timestampStartTime;
+                    string time = (Mathf.Floor(elapsedTime / 60)).ToString("0") + "m" + (elapsedTime % 60).ToString("0.00") + "s";
+                    winnerText.SetText("Score : " + time);
+                }
                 Invoke("fin", 5.0f);
             }
         }
+        
+        
 
         private void fin() {
             int[] resultat = new int[nbPlayer];

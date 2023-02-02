@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,12 @@ namespace RedAlert{
         [SerializeField] private string nextLevelTriggerTag;
         [SerializeField] private string inputActionName = "Valider";
         [SerializeField] private Object explosionOnImpact;
+        [SerializeField] private TMP_Text playerText;
+
+        private void Start() {
+            playerText.SetText("player " + playerIndex);
+        }
+
         private void FixedUpdate() {
             if (playerInput.actions[inputActionName].IsPressed()) {
                 rigidbody2D.velocity += new Vector2(boostRight, boostUp) * Time.deltaTime;
