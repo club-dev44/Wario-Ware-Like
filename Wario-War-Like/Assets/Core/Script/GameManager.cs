@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         }
         for (int i = 0; i <= nbJeu; i++)
         {
-            int randomIndex = Random.Range(0, jeuxPossible.Count - 1);
+            int randomIndex = Random.Range(0, jeuxPossible.Count);
             jeuxChoisi.Add(jeuxPossible[randomIndex]);
         }
     }
