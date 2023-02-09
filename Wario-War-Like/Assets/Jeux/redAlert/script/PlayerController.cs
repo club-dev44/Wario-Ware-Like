@@ -27,11 +27,6 @@ namespace RedAlert{
         [SerializeField] private string nextLevelTriggerTag;
         [SerializeField] private string inputActionName = "Valider";
         [SerializeField] private Object explosionOnImpact;
-        [SerializeField] private TMP_Text playerText;
-
-        private void Start() {
-            playerText.SetText("player " + playerIndex);
-        }
 
         private void FixedUpdate() {
             if (playerInput.actions[inputActionName].IsPressed()) {

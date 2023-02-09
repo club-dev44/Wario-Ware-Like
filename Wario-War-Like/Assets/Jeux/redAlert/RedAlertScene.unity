@@ -333,6 +333,7 @@ MonoBehaviour:
   textChrono: {fileID: 681125325}
   animation: {fileID: 1321680396}
   winnerText: {fileID: 361309721}
+  textFollowerPrefab: {fileID: 6346994326650672626, guid: 81f43dc523adc0740ba2c6078feb5996, type: 3}
 --- !u!4 &395047356
 Transform:
   m_ObjectHideFlags: 0

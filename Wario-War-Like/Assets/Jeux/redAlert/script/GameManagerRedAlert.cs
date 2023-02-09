@@ -28,6 +28,7 @@ namespace RedAlert
         private bool animTerminer = false;
         private float durationAnimation = 5.1f;
         private float timestampStartTime;
+        [SerializeField] private Object textFollowerPrefab;
 
         private List<int> remainingPlayers = new List<int>();
         
@@ -61,22 +62,32 @@ namespace RedAlert
             cameraPathFollower.players = new List<Transform>();
             int index = 0;
             foreach (PlayerConfiguration playerConfiguration in playerConfigurations) {
-                GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-                PlayerController playerComponent = player.GetComponent<PlayerController>();
-                playerComponent.playerInput = playerConfiguration.Input;
-                playerComponent.levelsManager = levelsManager;
-                playerComponent.playerIndex = index; 
-                playerComponent.diedEvent += onPlayerDied;
-                cameraPathFollower.players.Add(player.transform);
-                players.Add(playerComponent);
+                addPlayer(cameraPathFollower, playerConfiguration, index);
                 remainingPlayers.Add(index);
                 index++;
-                
             }
 
             nbPlayer = playerConfigurations.Count;
             actualNbPlayer = nbPlayer;
             camera.SetActive(true);
+        }
+
+        private void addPlayer(CameraPathFollower cameraPathFollower, PlayerConfiguration playerConfiguration,
+            int index) {
+            GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+            PlayerController playerComponent = player.GetComponent<PlayerController>();
+            playerComponent.playerInput = playerConfiguration.Input;
+            playerComponent.levelsManager = levelsManager;
+            playerComponent.playerIndex = index; 
+            playerComponent.diedEvent += onPlayerDied;
+            cameraPathFollower.players.Add(player.transform);
+            players.Add(playerComponent);
+
+            GameObject textFollowerGameObject = (GameObject)Instantiate(textFollowerPrefab, Vector3.zero, Quaternion.identity);
+            TMP_Text textComponent = textFollowerGameObject.GetComponentInChildren<TMP_Text>();
+            textComponent.SetText("Joueur " + index);
+            GameObjectFollower gameObjectFollower = textFollowerGameObject.GetComponentInChildren<GameObjectFollower>();
+            gameObjectFollower.setObjectToFollow(player);
         }
 
         private void Update() {
