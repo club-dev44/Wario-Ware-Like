@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProtectTheWall
 {
-    public class BulletData : MonoBehaviour
+    public class BulletBrain : MonoBehaviour
     {
         public int DamageAmount;
 
@@ -15,13 +13,28 @@ namespace ProtectTheWall
         [SerializeField]
         private float lifeTimeAfterBounce;
 
+        private TurretController playerOwner;
+
+        public TurretController PlayerOwner
+        {
+            private get => playerOwner; 
+            set
+            {
+                if (playerOwner == null)
+                    playerOwner = value;
+                else
+                    Debug.Log("Bullet already owned");
+            }
+        }
+
         private void Start()
         {
             rigidBody.AddRelativeForce(power * Vector3.up);
         }
 
-        public void EnemyCollided()
+        public void EnemyCollided(int points)
         {
+            PlayerOwner.Points += points;
             Destroy(gameObject);
         }
 

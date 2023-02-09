@@ -54,9 +54,9 @@ namespace ProtectTheWall
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
             {
-                BulletData bullet = collision.gameObject.GetComponent<BulletData>();
+                BulletBrain bullet = collision.gameObject.GetComponent<BulletBrain>();
                 Health -= bullet.DamageAmount;
-                bullet.EnemyCollided();
+                bullet.EnemyCollided(health);
             }
         }
     }

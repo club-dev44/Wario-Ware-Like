@@ -48,6 +48,7 @@ namespace ProtectTheWall
             TurretController _controller = _player.GetComponent<TurretController>();
             _controller.playerConfiguration = playerConf;
             _controller.gameManager = gameManager;
+            gameManager.AddPlayer(_controller);
             playerConf.Input.SwitchCurrentActionMap("ProtectTheWallActionMap");
             
         }

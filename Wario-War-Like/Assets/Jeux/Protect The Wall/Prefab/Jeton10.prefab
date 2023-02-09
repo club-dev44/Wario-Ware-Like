@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3247614644768697495
 SpriteRenderer:
@@ -103,6 +103,7 @@ MonoBehaviour:
   rigidBody: {fileID: -5444418181751713740}
   power: 750
   lifeTimeAfterBounce: 5
+  explosionAnimation: {fileID: 1333124611877379437, guid: bf0fd433eabe25d4a916ca2cfacbb048, type: 3}
 --- !u!58 &4829963125533888362
 CircleCollider2D:
   m_ObjectHideFlags: 0

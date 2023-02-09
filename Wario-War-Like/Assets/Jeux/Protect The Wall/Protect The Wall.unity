@@ -764,7 +764,7 @@ MonoBehaviour:
   leftPosition: {fileID: 494032504}
   rightPosition: {fileID: 114062083}
   yPosition: 6
-  spawnRatePerPlayer: 0
+  spawnRatePerPlayer: 2
 --- !u!4 &1897567143
 Transform:
   m_ObjectHideFlags: 0
