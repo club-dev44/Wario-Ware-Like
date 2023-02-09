@@ -19,6 +19,7 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     public static PlayerConfigurationManager Instance { get; private set; }
 
+    [SerializeField] private bool enableJoiningByDefault = false;
     
     public event Action<int> playerReady;
 
@@ -47,7 +48,11 @@ public class PlayerConfigurationManager : MonoBehaviour
 
         inputManager = GetComponent<PlayerInputManager>();
         inputManager.onPlayerJoined += OnPlayerJoin;
-        inputManager.DisableJoining();
+        if (enableJoiningByDefault) {
+            enableJoining();
+        } else {
+            disableJoining();
+        }
     }
 
     public void OnPlayerJoin(PlayerInput playerInput)

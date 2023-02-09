@@ -48,5 +48,8 @@ MonoBehaviour:
   - sceneName: Pong
     consigne: il suffit de battre ton adversaire
     nbJoueurs: 02000000
+  - sceneName: RedAlertScene
+    consigne: il suffit de battre ton adversaire
+    nbJoueurs: 0100000002000000
   jeuxChoisi: []
   scoresJoueurs: 
