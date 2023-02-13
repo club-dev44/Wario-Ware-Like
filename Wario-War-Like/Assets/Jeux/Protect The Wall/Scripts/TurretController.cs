@@ -51,8 +51,8 @@ namespace ProtectTheWall
                 {
                     _leftOrRightRotation *= -1;
                 }
-                transform.Rotate(Vector3.forward, _leftOrRightRotation * currentRotationSpeed * Time.fixedDeltaTime);
-                yield return new WaitForFixedUpdate();
+                transform.Rotate(Vector3.forward, _leftOrRightRotation * currentRotationSpeed * Time.deltaTime);
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
 

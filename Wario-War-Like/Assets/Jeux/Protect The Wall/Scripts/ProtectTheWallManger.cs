@@ -32,24 +32,26 @@ namespace ProtectTheWall
         internal void FinishGame()
         {
             int totalScoreSum = 0;
-            foreach (TurretController player in players)
-            {
-                totalScoreSum += player.Points;
-            }
-            int[] scores = new int[players.Count];
             int bestPlayerIndex = 0;
-            int checkScore = 0;
-            for (int i = 0; i < scores.Length; i++)
+            for (int index = 0; index < players.Count; index++)
             {
-                scores[i] = players[i].Points * 100 / totalScoreSum;
-                if (players[i].Points >= 100)
-                {
-                    bestPlayerIndex= i;
-                }
-                checkScore += scores[i];
+                if (players[index].Points > players[bestPlayerIndex].Points)
+                    bestPlayerIndex = index;
+                totalScoreSum += players[index].Points;
             }
-            if (checkScore < 100)
-                scores[bestPlayerIndex];OSKOUR
+            totalScoreSum += players[bestPlayerIndex].Points; // to double the winner points
+
+            int[] scores = new int[players.Count];
+            int secondarySum = 0; // to be able to have exactly 100 points distributed
+            for (int index = 0; index < players.Count; index++)
+            {
+                int playerPoints = players[index].Points;
+                if (index == bestPlayerIndex)
+                    playerPoints *= 2;
+                scores[index] = Mathf.FloorToInt(playerPoints * 100f / totalScoreSum);
+                secondarySum += scores[index];
+            }
+            scores[bestPlayerIndex] += totalScoreSum - secondarySum;
             GameManager.Instance.jeuSuivant(scores);
         }
     }
