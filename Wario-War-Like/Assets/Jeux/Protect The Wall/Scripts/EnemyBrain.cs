@@ -13,6 +13,9 @@ namespace ProtectTheWall
         private float moveSpeed;
         [SerializeField]
         private int health;
+        [SerializeField, Range(0, 1)]
+        private float spawnProbability;
+        public float SpawnProbability { get => spawnProbability; }
 
         private int Health
         {
@@ -58,6 +61,8 @@ namespace ProtectTheWall
                 Health -= bullet.DamageAmount;
                 bullet.EnemyCollided(health);
             }
+            if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+                Destroy(gameObject);
         }
     }
 

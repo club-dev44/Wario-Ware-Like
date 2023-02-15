@@ -37,20 +37,20 @@ namespace ProtectTheWall
         private void AddPlayer(PlayerConfiguration playerConf)
         {
             GameObject _player = Instantiate(playerPrefab, transform);
-            float _playerPosition = LeftPosition.position.x;
+            float _playerXPosition = LeftPosition.position.x;
             float _step = distanceBetweenBorder / (transform.childCount + 1);
             foreach (Transform child in transform)
             {
-                _playerPosition += _step;
-                child.position = new Vector3(_playerPosition, yPosition);
+                _playerXPosition += _step;
+                child.position = new Vector3(_playerXPosition, yPosition);
             }
-            Instantiate(turretBase, new Vector3(_playerPosition, yPosition), Quaternion.identity);
+            Instantiate(turretBase, new Vector3(_playerXPosition, yPosition - 0.77f), Quaternion.Euler(0, 0, 180));
             TurretController _controller = _player.GetComponent<TurretController>();
             _controller.playerConfiguration = playerConf;
             _controller.gameManager = gameManager;
             gameManager.AddPlayer(_controller);
             playerConf.Input.SwitchCurrentActionMap("ProtectTheWallActionMap");
-            
+
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ProtectTheWall
         [SerializeField]
         private float spawnRatePerPlayer;
 
-        private float distanceBetweenBorder
+        private float DistanceBetweenBorder
         {
             get => Mathf.Abs(leftPosition.position.x - rightPosition.position.x);
         }

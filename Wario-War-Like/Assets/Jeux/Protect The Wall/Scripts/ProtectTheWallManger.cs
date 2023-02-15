@@ -26,7 +26,16 @@ namespace ProtectTheWall
 
         public GameObject GetAMobToSpawn()
         {
-            return enemies[Random.Range(0, enemies.Count)]; // changer pour une fonction genre du temps de jeu et du niveau de difficulté
+            GameObject chosenEnemy = null;
+            while (chosenEnemy == null)
+            {
+                GameObject possibleEnemy = enemies[Random.Range(0, enemies.Count)];
+                if (Random.value < possibleEnemy.GetComponent<EnemyBrain>().SpawnProbability)
+                {
+                    chosenEnemy = possibleEnemy;
+                }
+            }
+            return chosenEnemy;
         }
 
         internal void FinishGame()
