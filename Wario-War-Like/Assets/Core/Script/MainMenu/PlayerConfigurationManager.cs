@@ -17,8 +17,6 @@ namespace Core
         private List<PlayerConfiguration> playerConfigs;
         public IReadOnlyList<PlayerConfiguration> PlayerConfigurations { get => playerConfigs; }
 
-        public int PlayerCount { get => inputManager.playerCount; }
-
         public static PlayerConfigurationManager Instance { get; private set; }
 
         [SerializeField] private bool enableJoiningByDefault;
@@ -60,10 +58,13 @@ namespace Core
             }
         }
 
-        inputManager = GetComponent<PlayerInputManager>();
-        inputManager.onPlayerJoined += OnPlayerJoin;
-        inputManager.DisableJoining();
-    }
+        public void OnPlayerJoin(PlayerInput playerInput)
+        {
+            Debug.Log("Player joined");
+            playerInput.transform.parent = transform;
+            if (!playerConfigs.Any(pi => pi.PlayerIndex == playerInput.playerIndex))
+                playerConfigs.Add(new PlayerConfiguration(playerInput));
+        }
 
         public void PlayerReady(int index)
         {
