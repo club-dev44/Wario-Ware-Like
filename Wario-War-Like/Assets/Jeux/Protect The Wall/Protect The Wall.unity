@@ -2234,7 +2234,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5501204, y: 0.41597217}
+  m_Offset: {x: -1.3663645, y: -0.008224487}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2245,7 +2245,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.699324, y: 1.8319443}
+  m_Size: {x: 20.066835, y: 0.983551}
   m_EdgeRadius: 0
 --- !u!1 &401159468
 GameObject:
@@ -2293,7 +2293,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 60438647}
   playerPrefab: {fileID: 8812253515807441645, guid: bedd96feb13b74e4ca9887769a3f44c9, type: 3}
-  turretBase: {fileID: 601323246061041999, guid: 7deed5e7bc892994f969e8734b577e62, type: 3}
   LeftPosition: {fileID: 494032504}
   RightPosition: {fileID: 114062083}
   yPosition: -2.4

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace ProtectTheWall
@@ -11,13 +12,13 @@ namespace ProtectTheWall
         [SerializeField]
         private float power;
         [SerializeField]
-        private float lifeTimeAfterBounce;
+        private float lifeTimeAfterBounce, minimumVelocityThreshold;
 
         private TurretController playerOwner;
 
         public TurretController PlayerOwner
         {
-            private get => playerOwner; 
+            private get => playerOwner;
             set
             {
                 if (playerOwner == null)
@@ -30,6 +31,18 @@ namespace ProtectTheWall
         private void Start()
         {
             rigidBody.AddRelativeForce(power * Vector3.up);
+            StartCoroutine(IsItStoped());
+        }
+
+        private IEnumerator IsItStoped()
+        {
+            yield return new WaitForSeconds(1);
+            while (true)
+            {
+                if (rigidBody.velocity.sqrMagnitude < minimumVelocityThreshold)
+                    Destroy(gameObject);
+                yield return new WaitForSeconds(.5f);
+            }
         }
 
         public void EnemyCollided(int points)
