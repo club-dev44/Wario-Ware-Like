@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerateGround : MonoBehaviour
+namespace ProtectTheWall
 {
-    [SerializeField]
-    private int cellWidth, cellHeight;
-    [SerializeField]
-    private GameObject quadPrefab;
-
-    private void Start()
+    public class GenerateGround : MonoBehaviour
     {
-        GenGround();
-    }
+        [SerializeField]
+        private int cellWidth, cellHeight;
+        [SerializeField]
+        private GameObject quadPrefab;
 
-    private void GenGround()
-    {
-        for (int i = 0; i < cellHeight; i++)
+        private void Start()
         {
-            for (int j = 0; j < cellWidth; j++)
+            GenGround();
+        }
+
+        private void GenGround()
+        {
+            for (int i = 0; i < cellHeight; i++)
             {
-                float[] possibleRotations = { 0, 90, 180, 270 };
-                Instantiate(quadPrefab, transform.position + new Vector3(i, j, 0), Quaternion.Euler(0, 0, possibleRotations[Random.Range(0, 4)]), transform);
+                for (int j = 0; j < cellWidth; j++)
+                {
+                    float[] possibleRotations = { 0, 90, 180, 270 };
+                    Instantiate(quadPrefab, transform.position + new Vector3(i, j, 0), Quaternion.Euler(0, 0, possibleRotations[Random.Range(0, 4)]), transform);
+                }
             }
         }
     }
