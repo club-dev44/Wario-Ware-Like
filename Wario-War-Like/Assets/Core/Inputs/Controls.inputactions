@@ -255,6 +255,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "testActionMap",
+            "id": "1d1b2793-af33-43f3-8da4-3a353bdab34c",
+            "actions": [
+                {
+                    "name": "testAction",
+                    "type": "Button",
+                    "id": "d8b1fc4c-af28-41d3-a2e7-ce0b7ecf8418",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d2bc5893-ce7d-4f50-9c31-3f5bc2d6e8fe",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "testAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

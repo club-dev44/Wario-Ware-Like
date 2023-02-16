@@ -24,7 +24,7 @@ public class LoadingSceneManager : MonoBehaviour
     {
         gameManager = GameManager.Instance; 
         StartCoroutine(tempDeChargement());
-        PlayerConfigurationManager.Instance.updatePlayerActionMap();
+        PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
     }
 
     

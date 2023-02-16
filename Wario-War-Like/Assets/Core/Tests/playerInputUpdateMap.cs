@@ -13,25 +13,16 @@ public class playerInputUpdateMap : InputTestFixture
 {
     private GameObject prefabPlayerManager = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Core/Prefab/PlayerManager.prefab");
     
-    private string DEFAULT_ACTION_MAP_NAME = "Controls";
-    // A Test behaves as an ordinary method
-    [Test]
-    public void playerInputUpdateMapSimplePasses() {
-    }
-
+    private string DEFAULT_ACTION_MAP_NAME = "ActionMap";
     [Test]
     public void canPressButtonOnGamePad() {
         var gamepad = InputSystem.AddDevice<Gamepad>();
         Press(gamepad.buttonSouth);
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
     [UnityTest]
     public IEnumerator playerIsAbleToJoin()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
         GameObject playerMananager = MonoBehaviour.Instantiate(prefabPlayerManager, Vector3.zero, Quaternion.identity);
         UnityEngine.Assertions.Assert.IsNotNull(playerMananager);
         PlayerConfigurationManager playerConfigurationManager = playerMananager.GetComponent<PlayerConfigurationManager>();
@@ -46,8 +37,6 @@ public class playerInputUpdateMap : InputTestFixture
     [UnityTest]
     public IEnumerator defaultMapIsSetOnPlayer()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
         GameObject playerMananager = MonoBehaviour.Instantiate(prefabPlayerManager, Vector3.zero, Quaternion.identity);
         UnityEngine.Assertions.Assert.IsNotNull(playerMananager);
         PlayerConfigurationManager playerConfigurationManager = playerMananager.GetComponent<PlayerConfigurationManager>();
@@ -57,7 +46,7 @@ public class playerInputUpdateMap : InputTestFixture
         Press(gamepad.startButton);
         yield return null;
         Assert.AreEqual(1, playerConfigurationManager.PlayerConfigurations.Count);
-        Assert.IsTrue(playerConfigurationManager.PlayerConfigurations[0].Input.actions.name.Equals(DEFAULT_ACTION_MAP_NAME));
+        Assert.IsTrue(playerConfigurationManager.PlayerConfigurations[0].Input.currentActionMap.name.Equals(DEFAULT_ACTION_MAP_NAME));
     }
     
     [UnityTest]

@@ -9,11 +9,11 @@ namespace Core
     public class ChangeActionMapOnPlayers : MonoBehaviour
     {
         [SerializeField]
-        public InputActionAsset actionMap;
+        public InputActionReference actionMap;
         public void changeActionMapOnPlayers() {
             PlayerConfigurationManager playerConfigurationManager = PlayerConfigurationManager.Instance;
             foreach (PlayerConfiguration playerConfiguration in playerConfigurationManager.PlayerConfigurations) {
-                playerConfiguration.Input.actions = actionMap;
+                playerConfiguration.Input.currentActionMap = actionMap.action.actionMap;
             }
         }
     }

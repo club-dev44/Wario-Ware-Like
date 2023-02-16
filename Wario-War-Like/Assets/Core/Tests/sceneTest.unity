@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b10c3bec621a04aaf26c77024473e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionMap: {fileID: -944628639613478452, guid: cad26ab5826e81b44939eb39d67d4438, type: 3}
+  actionMap: {fileID: -1809650845272290, guid: 455b24d70aa04324bbf15c8de05b9535, type: 3}
 --- !u!4 &1434460086
 Transform:
   m_ObjectHideFlags: 0
@@ -345,6 +345,18 @@ PrefabInstance:
     - target: {fileID: 3969502488167270857, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
       propertyPath: m_Name
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270862, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: defaultActionMap
+      value: 
+      objectReference: {fileID: 3477570889558171796, guid: 455b24d70aa04324bbf15c8de05b9535, type: 3}
+    - target: {fileID: 3969502488167270862, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: defaultActionMap.m_Action.m_Id
+      value: 7bf8ff0c-000d-4555-a68e-fff7fbe7bc5e
+      objectReference: {fileID: 0}
+    - target: {fileID: 3969502488167270862, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
+      propertyPath: defaultActionMap.m_Action.m_Name
+      value: Default Action Map
       objectReference: {fileID: 0}
     - target: {fileID: 3969502488167270863, guid: 5a696050ec9d93d43a75a7642b7d0a33, type: 3}
       propertyPath: m_RootOrder
