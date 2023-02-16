@@ -70,7 +70,8 @@ namespace ProtectTheWall
                 scores[index] = Mathf.FloorToInt(playerPoints * 100f / totalScoreSum);
                 secondarySum += scores[index];
             }
-            scores[bestPlayerIndex] += totalScoreSum - secondarySum;
+
+            scores[bestPlayerIndex] += 100 - secondarySum;
             GameManager.Instance.jeuSuivant(scores);
         }
     }

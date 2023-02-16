@@ -1,6 +1,7 @@
 using Core;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,6 +25,8 @@ namespace ProtectTheWall
         [SerializeField]
         private SpriteRenderer bulletDisplay;
         [SerializeField]
+        private TextMeshPro scoreDisplay;
+        [SerializeField]
         private List<GameObject> magazine = new();
 
         private int points;
@@ -33,6 +36,7 @@ namespace ProtectTheWall
             set
             {
                 points = value;
+                scoreDisplay.text = points.ToString();
                 if (points >= 100)
                 {
                     points = 100;
@@ -48,6 +52,7 @@ namespace ProtectTheWall
 
         private void Start()
         {
+            Points = 0;
             currentRotationSpeed = normalRotationSpeed;
             StartCoroutine(BarrelRotation());
             playerConfiguration.Input.actions["SHOOT"].performed += Shoot; // To subscribe to the action /!\ do not forget to unsubscribe on destroy !!
@@ -63,7 +68,7 @@ namespace ProtectTheWall
                 if (barrel.transform.rotation.eulerAngles.z > maxRotationDegree && barrel.transform.rotation.eulerAngles.z < maxRotationDegree + 10) // add a threshold to avoid blocking 
                     _leftOrRightRotation = -1;
                 else if (barrel.transform.rotation.eulerAngles.z < 360 - maxRotationDegree && barrel.transform.rotation.eulerAngles.z > 360 - (maxRotationDegree + 10))
-                    _leftOrRightRotation =1;
+                    _leftOrRightRotation = 1;
 
                 barrel.transform.Rotate(Vector3.forward, _leftOrRightRotation * currentRotationSpeed * Time.fixedDeltaTime);
                 yield return new WaitForSeconds(Time.fixedDeltaTime);
@@ -106,6 +111,7 @@ namespace ProtectTheWall
         private void OnDestroy()
         {
             playerConfiguration.Input.actions["SHOOT"].performed -= Shoot;
+            playerConfiguration.Input.SwitchCurrentActionMap(playerConfiguration.Input.defaultActionMap);
         }
     }
 }

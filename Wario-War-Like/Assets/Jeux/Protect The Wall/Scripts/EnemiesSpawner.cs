@@ -38,7 +38,7 @@ namespace ProtectTheWall
             while(true)
             {
                 SpawnMob();
-                yield return new WaitForSeconds(spawnRatePerPlayer * PlayerConfigurationManager.Instance.inputManager.playerCount);
+                yield return new WaitForSeconds(spawnRatePerPlayer / PlayerConfigurationManager.Instance.inputManager.playerCount);
             }
         }
 

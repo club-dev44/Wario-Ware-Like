@@ -50,7 +50,6 @@ namespace ProtectTheWall
             _controller.BulletBag = bulletBag;
             gameManager.AddPlayer(_controller);
             playerConf.Input.SwitchCurrentActionMap("ProtectTheWallActionMap");
-
         }
     }
 }
