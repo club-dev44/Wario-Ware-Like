@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core/Scenes/Menus.unity
     guid: 06ab1896e8d4eec49b534c307c3672ee
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Core/Scenes/BaseJeu.unity
     guid: 3f0d7548a14695249850a7e16beeb284
@@ -20,13 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core/Scenes/LoadingScene.unity
     guid: 461c5de74b7f1d74f81220eeec23a150
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Core/Scenes/FinalScoreScene.unity
     guid: 42c84d921efa98e45ba55744cb6b9ad6
   - enabled: 1
-    path: Assets/Jeux/redAlert/redAlertScene.unity
+    path: Assets/Jeux/redAlert/RedAlertScene.unity
     guid: abf2ccde2c3d5df4aa4b774e4c4bb190
+  - enabled: 1
+    path: Assets/Jeux/Protect The Wall/ProtectTheWall.unity
+    guid: b5d21f7ee1f1c2c4cb82bad407662736
   m_configObjects: {}

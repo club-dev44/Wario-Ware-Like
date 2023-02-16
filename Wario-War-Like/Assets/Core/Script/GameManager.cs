@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private event Action StartGame;
 
     public void subscribeToStartGame(Action action) {
+        playerConfiguration = PlayerConfigurationManager.Instance;
         if (playerConfiguration.AllPlayersReady) {
             action.Invoke();
         } else {
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerConfiguration.inputManager.playerCount > 1) {
             int sum = resultatJoueur.Sum();
-            if (sum < 100) throw new Exception("The game finish without distributing the 100 points");
+            if (sum != 100) throw new Exception("The game finish without distributing the 100 points");
         } else {
             if (resultatJoueur[0] < 50) {
                 actualGameIndex = jeuxChoisi.Count;

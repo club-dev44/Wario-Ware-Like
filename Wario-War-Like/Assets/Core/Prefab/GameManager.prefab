@@ -51,5 +51,9 @@ MonoBehaviour:
   - sceneName: RedAlertScene
     consigne: il suffit de battre ton adversaire
     nbJoueurs: 0100000002000000
+  - sceneName: ProtectTheWall
+    consigne: "D\xE9truit les ennemies en leur envoyant des jetons, soit le premier
+      \xE0 100 points !"
+    nbJoueurs: 01000000020000000300000004000000
   jeuxChoisi: []
   scoresJoueurs: 
