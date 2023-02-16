@@ -12,6 +12,8 @@ namespace Core
 
     public class PlayerConfigurationManager : MonoBehaviour
     {
+        [SerializeField]
+        private InputActionAsset defaultActionMap;
         public PlayerInputManager inputManager { get; private set; }
 
         private List<PlayerConfiguration> playerConfigs;
@@ -104,6 +106,12 @@ namespace Core
         public void disableJoining()
         {
             inputManager.DisableJoining();
+        }
+
+        public void updatePlayerActionMap() {
+            foreach (PlayerConfiguration playerConfiguration in PlayerConfigurations) {
+                playerConfiguration.Input.actions = defaultActionMap;
+            }
         }
     }
 

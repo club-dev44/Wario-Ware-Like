@@ -1,0 +1,34 @@
+{
+    "name": "testInputActionMap",
+    "maps": [
+        {
+            "name": "test",
+            "id": "f4cee2bf-5ba6-471a-8535-093c222dba5d",
+            "actions": [
+                {
+                    "name": "testActionStart",
+                    "type": "Button",
+                    "id": "983d229f-441a-43fd-9ded-de8477ca3637",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fcd963f-8fec-47fc-b781-828dcb933d54",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "testActionStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
