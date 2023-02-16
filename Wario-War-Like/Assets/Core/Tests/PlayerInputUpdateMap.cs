@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-public class playerInputUpdateMap : InputTestFixture
+public class PlayerInputUpdateMap : InputTestFixture
 {
     private GameObject prefabPlayerManager = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Core/Prefab/PlayerManager.prefab");
     
@@ -63,7 +63,7 @@ public class playerInputUpdateMap : InputTestFixture
         GameObject testeur = GameObject.Find("testeur");
         Assert.NotNull(testeur);
         testeur.GetComponent<ChangeActionMapOnPlayers>().changeActionMapOnPlayers();
-        Assert.True(PlayerConfigurationManager.Instance.PlayerConfigurations[0].Input.currentActionMap.name.Equals("test"));
+        Assert.True(PlayerConfigurationManager.Instance.PlayerConfigurations[0].Input.currentActionMap.name.Equals("testActionMap"));
     }
 
     
