@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744475067037799948}
   - component: {fileID: 3011214503987300509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UnderTile left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -349890173
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: -1470162018, guid: be1bea424931e144dbe4f5cc586badba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1972033475979416834}
   - component: {fileID: 9014143758275681445}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -349890173
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -2062322671, guid: be1bea424931e144dbe4f5cc586badba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8257534809971231003}
   - component: {fileID: 1152368580925549325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,8 +238,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -349890173
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -2062322671, guid: be1bea424931e144dbe4f5cc586badba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -277,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6118886688230737676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -323,7 +323,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 216904167
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: -1759102767, guid: 91113c57e2547fd40a1c53149d52d9a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6493981766967575789}
   - component: {fileID: 710598663342994806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: UnderTile right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,8 +406,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -349890173
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: -1470162018, guid: be1bea424931e144dbe4f5cc586badba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5004594857954414456}
   - component: {fileID: 5307276470250792026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TurretBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,8 +494,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -349890173
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -320430658, guid: 0768959925b86ca439bf2537f7eefd0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -579,7 +579,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 216904167
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1347239720, guid: 0768959925b86ca439bf2537f7eefd0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -641,8 +641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   barrel: {fileID: 8812253515332886079}
-  maxRotationDegree: 70
-  normalRotationSpeed: 100
+  maxRotationDegree: 75
+  normalRotationSpeed: 150
   slowedRotationSpeed: 5
   slowDuration: 0.25
   magazineCurve:
@@ -653,22 +653,63 @@ MonoBehaviour:
       value: 0
       inSlope: 0
       outSlope: 0
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.75
+      value: 1.1
+      inSlope: 1.4
+      outSlope: 1.4
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 5
-      value: 1.1
-      inSlope: 0
-      outSlope: 0
+      time: 1.5
+      value: 2.1
+      inSlope: 1.1428571
+      outSlope: 1.1428571
       tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.5
+      value: 3.1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 3.5
+      value: 4.1
+      inSlope: 0.5714286
+      outSlope: 0.5714286
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 6
+      value: 5.1
+      inSlope: 0.50236064
+      outSlope: 0.50236064
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  bulletDisplay: {fileID: 3981273788671383273}
   magazine:
   - {fileID: 1344507095598293745, guid: dffd0f293df415a4f843c041f8106c7f, type: 3}
   - {fileID: 5951597427187726312, guid: a203e2a8baa069b4d907b7afe9d94932, type: 3}
+  - {fileID: 8747342641373020935, guid: 39ad4738939b30c4a810d0a3f97c1e03, type: 3}
+  - {fileID: 8258364381726752126, guid: dc9c65c8859a8794e869ed19339b3ebe, type: 3}
+  - {fileID: 5654537171219903402, guid: 6b65b5f617fd97240853f51ca9e26b1b, type: 3}
+  - {fileID: 299744769954403409, guid: f26dc271532a24c4397ba39e47da93ba, type: 3}

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1973669163264181194, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: m_Name
-      value: GenericEnemy
+      value: Chryssalid
       objectReference: {fileID: 0}
     - target: {fileID: 2809862506201450883, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: m_Size.x
@@ -31,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: health
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
+      propertyPath: maxHealth
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: moveSpeed

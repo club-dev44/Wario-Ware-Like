@@ -8,20 +8,22 @@ namespace ProtectTheWall
     public class ProtectTheWallManger : MonoBehaviour
     {
         [SerializeField]
-        private List<GameObject> possibleBullets = new();
-        [SerializeField]
         private List<GameObject> enemies = new();
+        [SerializeField]
+        private Animator boomAnimator;
+        [SerializeField]
+        private GameObject boomSprite, bulletBag, enemySpawner;
 
         private List<TurretController> players = new();
+
+        private void Start()
+        {
+            boomSprite.SetActive(false);
+        }
 
         public void AddPlayer(TurretController player)
         {
             players.Add(player);
-        }
-
-        public GameObject GetCurrentBullet()
-        {
-            return possibleBullets[Random.Range(0, possibleBullets.Count)]; // changer pour une fonction genre du temps de jeu et du niveau de difficulté
         }
 
         public GameObject GetAMobToSpawn()
@@ -38,7 +40,15 @@ namespace ProtectTheWall
             return chosenEnemy;
         }
 
-        internal void FinishGame()
+        public void FinishGame()
+        {
+            Destroy(bulletBag);
+            Destroy(enemySpawner);
+            boomSprite.SetActive(true);
+            boomAnimator.Play("BigBOOM");
+        }
+
+        private void WaitForTheExplosion()
         {
             int totalScoreSum = 0;
             int bestPlayerIndex = 0;

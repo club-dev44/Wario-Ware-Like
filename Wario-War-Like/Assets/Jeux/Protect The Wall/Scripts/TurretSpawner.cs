@@ -12,13 +12,13 @@ namespace ProtectTheWall
         [SerializeField]
         private GameObject playerPrefab;
         [SerializeField]
-        private Transform LeftPosition, RightPosition;
+        private Transform leftPosition, rightPosition, bulletBag;
         [SerializeField]
         private float yPosition;
 
         private float DistanceBetweenBorder
         {
-            get => Mathf.Abs(LeftPosition.position.x - RightPosition.position.x);
+            get => Mathf.Abs(leftPosition.position.x - rightPosition.position.x);
         }
 
         private void Start()
@@ -37,7 +37,7 @@ namespace ProtectTheWall
         private void AddPlayer(PlayerConfiguration playerConf)
         {
             GameObject _player = Instantiate(playerPrefab, transform);
-            float _playerXPosition = LeftPosition.position.x;
+            float _playerXPosition = leftPosition.position.x;
             float _step = DistanceBetweenBorder / (transform.childCount + 1);
             foreach (Transform child in transform)
             {
@@ -47,6 +47,7 @@ namespace ProtectTheWall
             TurretController _controller = _player.GetComponent<TurretController>();
             _controller.playerConfiguration = playerConf;
             _controller.gameManager = gameManager;
+            _controller.BulletBag = bulletBag;
             gameManager.AddPlayer(_controller);
             playerConf.Input.SwitchCurrentActionMap("ProtectTheWallActionMap");
 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,7 +105,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BoomEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1847ed7d5539c448adde9ba4c3284c
+      internalID: 1807619160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bd43c5ccb49a9499f562448d47139e
+      internalID: -1467075979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1825d60a15e1c9444a262b9be86dffdb
+      internalID: 1725432550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7167e0dfe03e574984a6cdd260dacdf
+      internalID: 470541998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cda455bc76180554d854eb7c5288b4db
+      internalID: 1966579711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081826e867c553d41a325942e7f0ef3e
+      internalID: -1133252691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c4b695c858454469f051464fd7bbd3
+      internalID: 917821314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoomEffect_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0.5
+        width: 128.75
+        height: 64.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4f86f9cb2f89c48ae7a9648fb4cd45
+      internalID: 131837665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -116,7 +284,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BoomEffect_0: 1807619160
+      BoomEffect_2: 1725432550
+      BoomEffect_6: 917821314
+      BoomEffect_5: -1133252691
+      BoomEffect_4: 1966579711
+      BoomEffect_7: 131837665
+      BoomEffect_1: -1467075979
+      BoomEffect_3: 470541998
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

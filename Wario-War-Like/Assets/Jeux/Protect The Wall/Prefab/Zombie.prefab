@@ -38,7 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: health
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
+      propertyPath: maxHealth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3965586642725108751, guid: 94f689a6dfd16544b8cc4664512d38cb, type: 3}
       propertyPath: spawnProbability

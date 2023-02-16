@@ -58,10 +58,14 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 14a5af6ad0feccc4d8612882142a9c52, type: 2}
     - target: {fileID: 5502203058654237425, guid: 994f37d0130f76f44a26c8b9e03e6fb5, type: 3}
       propertyPath: m_Name
-      value: GenericEnemy
+      value: Muton
       objectReference: {fileID: 0}
     - target: {fileID: 6931243409853099316, guid: 994f37d0130f76f44a26c8b9e03e6fb5, type: 3}
       propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931243409853099316, guid: 994f37d0130f76f44a26c8b9e03e6fb5, type: 3}
+      propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6931243409853099316, guid: 994f37d0130f76f44a26c8b9e03e6fb5, type: 3}

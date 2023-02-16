@@ -12,18 +12,19 @@ namespace ProtectTheWall
         [SerializeField]
         private float moveSpeed;
         [SerializeField]
-        private int health;
+        private int maxHealth;
         [SerializeField, Range(0, 1)]
         private float spawnProbability;
         public float SpawnProbability { get => spawnProbability; }
 
+        private int currentHealth;
         private int Health
         {
-            get => health;
+            get => currentHealth;
             set
             {
-                health = value;
-                if (health <= 0)
+                currentHealth = value;
+                if (currentHealth <= 0)
                 {
                     if (Dead == null) Destroy(gameObject);
                     else
@@ -41,6 +42,7 @@ namespace ProtectTheWall
         // Start is called before the first frame update
         void Start()
         {
+            currentHealth = maxHealth;
             StartCoroutine(nameof(Walk));
         }
 
@@ -59,7 +61,8 @@ namespace ProtectTheWall
             {
                 BulletBrain bullet = collision.gameObject.GetComponent<BulletBrain>();
                 Health -= bullet.DamageAmount;
-                bullet.EnemyCollided(health);
+                int pointsToGive = Health <= 0 ? maxHealth : 0;
+                bullet.EnemyCollided(pointsToGive);
             }
             if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
                 Destroy(gameObject);
