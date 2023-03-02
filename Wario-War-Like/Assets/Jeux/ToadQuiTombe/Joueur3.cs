@@ -31,7 +31,7 @@ public class Joueur3 : MonoBehaviour
         if (Input.GetKey (KeyCode.J)){
         if (end==true){
             Destroy(Rb);
-            Score = (int)((PositionDépart - Tr.position.y) / (PositionDépart + 37.33225f) * 1000);
+            Score = (int)((PositionDépart - Tr.position.y) / (PositionDépart + 37.33225f) * 10000);
                 An.SetBool("Bool_Feu", true) ;
                 An.SetBool("Bool_Cligne", false);
             end =false;

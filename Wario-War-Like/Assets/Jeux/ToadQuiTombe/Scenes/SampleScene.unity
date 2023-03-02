@@ -2888,7 +2888,11 @@ GameObject:
   - component: {fileID: 1811573979}
   - component: {fileID: 1811573978}
   m_Layer: 5
+<<<<<<< HEAD
   m_Name: Score
+=======
+  m_Name: Canvas
+>>>>>>> 76d8edb90d0ac7c8e828e0802e9bb31ce33c9322
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
