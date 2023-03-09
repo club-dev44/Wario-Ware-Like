@@ -20,7 +20,7 @@ public class LoadingSceneManager : MonoBehaviour
 
 
     private float startLoadingTimeStamp;
-    private void Awake()
+    private void Start()
     {
         gameManager = GameManager.Instance; 
         StartCoroutine(tempDeChargement());
