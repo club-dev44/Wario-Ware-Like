@@ -89,4 +89,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228c9b04e74094e4898b41e0edca03b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneButton: {fileID: 0}
+  defaultActionMap: {fileID: -944628639613478452, guid: 455b24d70aa04324bbf15c8de05b9535, type: 3}
+  enableJoiningByDefault: 0
