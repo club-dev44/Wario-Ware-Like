@@ -17,18 +17,11 @@ namespace Core
         [SerializeField] private NotificationManager notificationManager;
 
         private float startLoadingTimeStamp;
-        private void Awake()
-        {
-            gameManager = GameManager.Instance; 
-            StartCoroutine(tempDeChargement());
-            PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
-        }
-
-        private float startLoadingTimeStamp;
         private void Start()
         {
             gameManager = GameManager.Instance;
             StartCoroutine(tempDeChargement());
+            PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
         }
 
 
