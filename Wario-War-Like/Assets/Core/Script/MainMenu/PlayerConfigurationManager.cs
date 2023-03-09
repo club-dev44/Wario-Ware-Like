@@ -103,6 +103,12 @@ namespace Core
         {
             inputManager.DisableJoining();
         }
+
+        public void resetCurrentActionMapOfAllPlayersInput() {
+            foreach (PlayerConfiguration playerConfiguration in PlayerConfigurations) {
+                playerConfiguration.Input.currentActionMap = playerConfiguration.Input.actions.FindActionMap(playerConfiguration.Input.defaultActionMap);
+            }
+        }
     }
 
     public class PlayerConfiguration
