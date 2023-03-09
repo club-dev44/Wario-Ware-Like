@@ -136,9 +136,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &8409114535738883258
 MonoBehaviour:
@@ -156,14 +156,13 @@ MonoBehaviour:
   levelsManager: {fileID: 0}
   gameManagerRedAlert: {fileID: 0}
   playerIndex: 0
-  rigidbody2D: {fileID: 8409114535738883256}
+  rb: {fileID: 8409114535738883256}
   boostUp: 10
   boostRight: 20
   tagWall: wall
   nextLevelTriggerTag: nextLevelTriggerTag
   inputActionName: Valider
   explosionOnImpact: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
-  playerText: {fileID: 0}
 --- !u!60 &6385120226419682003
 PolygonCollider2D:
   m_ObjectHideFlags: 0
