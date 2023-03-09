@@ -16,6 +16,12 @@ namespace Core
 
         public void ReturnToMainMenu()
         {
+            if (GameManager.Instance != null) {
+                Destroy(GameManager.Instance.gameObject);
+            }
+            if(PlayerConfigurationManager.Instance != null) {
+                Destroy(PlayerConfigurationManager.Instance.gameObject);
+            }
             SceneManager.LoadScene("Menus");
         }
 
