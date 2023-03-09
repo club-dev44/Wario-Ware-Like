@@ -1,6 +1,5 @@
 using Core;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProtectTheWall
@@ -35,7 +34,7 @@ namespace ProtectTheWall
         private IEnumerator MobSpawner()
         {
             yield return new WaitForSeconds(3);
-            while(true)
+            while (true)
             {
                 SpawnMob();
                 yield return new WaitForSeconds(spawnRatePerPlayer / PlayerConfigurationManager.Instance.inputManager.playerCount);

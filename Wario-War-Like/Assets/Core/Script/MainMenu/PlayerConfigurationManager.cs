@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Core
 {
@@ -38,7 +35,8 @@ namespace Core
 
         private void Awake()
         {
-            if (Instance != null && Instance != this) {
+            if (Instance != null && Instance != this)
+            {
                 Destroy(gameObject);
                 return;
             }

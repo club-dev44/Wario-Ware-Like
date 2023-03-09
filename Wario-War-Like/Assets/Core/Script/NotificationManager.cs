@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +13,8 @@ namespace Core
             public string message { get; set; }
             public NotificationType notificationType { get; set; }
 
-            public Notification(string message, NotificationType notificationType) {
+            public Notification(string message, NotificationType notificationType)
+            {
                 this.message = message;
                 this.notificationType = notificationType;
             }
@@ -25,15 +25,20 @@ namespace Core
         public bool displayingNotification = false;
         public static NotificationManager LastInstanceCreated { get; private set; }
 
-        private void Awake() {
+        private void Awake()
+        {
             LastInstanceCreated = this;
         }
 
-        private void OnEnable() {
-            Application.logMessageReceived +=ApplicationOnlogMessageReceived;        }
+        private void OnEnable()
+        {
+            Application.logMessageReceived += ApplicationOnlogMessageReceived;
+        }
 
-        private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type) {
-            switch (type) {
+        private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type)
+        {
+            switch (type)
+            {
                 case LogType.Error:
                     addNotification(condition, NotificationType.ERROR);
                     break;
@@ -49,7 +54,8 @@ namespace Core
             }
         }
 
-        private void OnDisable() {
+        private void OnDisable()
+        {
             Application.logMessageReceived -= ApplicationOnlogMessageReceived;
         }
 
@@ -58,10 +64,13 @@ namespace Core
         [SerializeField] private Object errorPopUpPrefab;
 
 
-        public void addNotification(string message, NotificationType notificationType = NotificationType.INFO) {
-            lock (queueLock) {
+        public void addNotification(string message, NotificationType notificationType = NotificationType.INFO)
+        {
+            lock (queueLock)
+            {
                 notificationsQueue.Enqueue(new Notification(message, notificationType));
-                if (!displayingNotification) {
+                if (!displayingNotification)
+                {
                     displayingNotification = true;
                     StartCoroutine(coroutineNotification());
                 }
@@ -69,11 +78,14 @@ namespace Core
         }
 
 
-        IEnumerator coroutineNotification() {
-            while( notificationsQueue.Count > 0) {
+        IEnumerator coroutineNotification()
+        {
+            while (notificationsQueue.Count > 0)
+            {
                 Notification notification = notificationsQueue.Dequeue();
                 GameObject popUp;
-                switch (notification.notificationType) {
+                switch (notification.notificationType)
+                {
                     case NotificationType.INFO:
                         popUp = (GameObject)Instantiate(infoPopUpPrefab);
                         break;

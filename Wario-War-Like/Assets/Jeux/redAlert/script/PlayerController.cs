@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
-namespace RedAlert{
+namespace RedAlert
+{
     public class PlayerController : MonoBehaviour
     {
         public PlayerInput playerInput;
@@ -19,8 +14,8 @@ namespace RedAlert{
 
         public delegate void diedEventMethod(int index);
         public diedEventMethod diedEvent;
-        
-        [SerializeField] private Rigidbody2D rigidbody2D;
+
+        [SerializeField] private Rigidbody2D rb;
         [SerializeField] private float boostUp = 1;
         [SerializeField] private float boostRight = 1;
         [SerializeField] private string tagWall;
@@ -28,21 +23,26 @@ namespace RedAlert{
         [SerializeField] private string inputActionName = "Valider";
         [SerializeField] private Object explosionOnImpact;
 
-        private void FixedUpdate() {
-            if (playerInput.actions[inputActionName].IsPressed()) {
-                rigidbody2D.velocity += new Vector2(boostRight, boostUp) * Time.deltaTime;
-            } 
-            transform.rotation = Quaternion.Euler(0, 0, rigidbody2D.velocity.x * 4);
+        private void FixedUpdate()
+        {
+            if (playerInput.actions[inputActionName].IsPressed())
+            {
+                rb.velocity += new Vector2(boostRight, boostUp) * Time.deltaTime;
+            }
+            transform.rotation = Quaternion.Euler(0, 0, rb.velocity.x * 4);
         }
 
-        private void OnTriggerEnter2D(Collider2D col) {
-            if (col.tag.Equals(tagWall)) {
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.tag.Equals(tagWall))
+            {
                 Instantiate(explosionOnImpact, transform.position, transform.rotation);
                 diedEvent?.Invoke(playerIndex);
                 gameObject.SetActive(false);
             }
 
-            if (col.tag.Equals(nextLevelTriggerTag)) {
+            if (col.tag.Equals(nextLevelTriggerTag))
+            {
                 levelsManager.addLevel();
             }
         }
