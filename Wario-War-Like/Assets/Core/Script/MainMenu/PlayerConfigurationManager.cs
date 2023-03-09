@@ -45,7 +45,7 @@ namespace Core
             Instance = this;
             DontDestroyOnLoad(Instance);
             playerConfigs = new List<PlayerConfiguration>();
-            inputManager = GetComponenpont<PlayerInputManager>();
+            inputManager = GetComponent<PlayerInputManager>();
             inputManager.enabled = true;
             inputManager.onPlayerJoined += OnPlayerJoin;
             if (enableJoiningByDefault)
