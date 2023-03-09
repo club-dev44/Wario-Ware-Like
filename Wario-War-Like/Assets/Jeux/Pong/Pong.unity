@@ -10419,7 +10419,7 @@ MonoBehaviour:
   ball: {fileID: 1209797554}
   player1StartPosition: {x: -7, y: 0}
   player2StartPosition: {x: 7, y: 0}
-  animation: {fileID: 202323376}
+  animationNewMatch: {fileID: 202323376}
   explosion: {fileID: 426730628}
   winText: {fileID: 1509733667}
   gameStarted: 0
@@ -10560,7 +10560,6 @@ MonoBehaviour:
   speed: 10
   player1: {fileID: 1711651205}
   player2: {fileID: 324185322}
-  scoreManager: {fileID: 497463650}
   gameManager: {fileID: 542290144}
   explosion: {fileID: 124014488}
   icesGameObjects: []

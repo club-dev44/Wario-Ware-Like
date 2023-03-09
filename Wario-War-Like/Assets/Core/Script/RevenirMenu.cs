@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-public class RevenirMenu : MonoBehaviour
-{
-    private GameManager gameManager;
-
-    // Start is called before the first frame update
-    void Start()
+    public class RevenirMenu : MonoBehaviour
     {
-        gameManager = GameManager.Instance;
-    }
+        private GameManager gameManager;
 
-    public void revenirMenu()
-    {
-        gameManager.sceneMenu();
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            gameManager = GameManager.Instance;
+        }
 
-}
+        public void revenirMenu()
+        {
+            gameManager.sceneMenu();
+        }
+
+    }
 }

@@ -1,68 +1,67 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Pong
 {
-    
-public class ScoreManagerPong : MonoBehaviour
-{
-    private int scorePlayer1;
-    private int scorePlayer2;
 
-    [SerializeField]
-    private TMPro.TextMeshProUGUI scoreText;
-
-    [SerializeField]
-    private GameManagerPong gameManager;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ScoreManagerPong : MonoBehaviour
     {
-        resetGame();
-    }
+        private int scorePlayer1;
+        private int scorePlayer2;
 
-    private void resetGame()
-    {
-        scorePlayer1 = 0;
-        scorePlayer2 = 0;
-        updateScoreText();
-    }
+        [SerializeField]
+        private TMPro.TextMeshProUGUI scoreText;
 
-    private void updateScoreText()
-    {
-        scoreText.text = scorePlayer1 + " : " + scorePlayer2;
+        [SerializeField]
+        private GameManagerPong gameManager;
 
-    }
-
-    public void setScorePlayer1(int newScore)
-    {
-        scorePlayer1 = newScore;
-        updateScoreText();
-        if(scorePlayer1 >= 5){
-            gameManager.win("player 1 ! ");
-        }
-
-    }
-    public void setScorePlayer2(int newScore)
-    {
-        scorePlayer2 = newScore;
-        updateScoreText();
-        if (scorePlayer2 >= 5)
+        // Start is called before the first frame update
+        void Start()
         {
-            gameManager.win("player 2 ! ");
+            resetGame();
         }
-    }
 
-    public int getScorePlayer1()
-    {
-        return scorePlayer1;
-    }
+        private void resetGame()
+        {
+            scorePlayer1 = 0;
+            scorePlayer2 = 0;
+            updateScoreText();
+        }
 
-    public int getScorePlayer2()
-    {
-        return scorePlayer2;
-    }
+        private void updateScoreText()
+        {
+            scoreText.text = scorePlayer1 + " : " + scorePlayer2;
 
-}
+        }
+
+        public void setScorePlayer1(int newScore)
+        {
+            scorePlayer1 = newScore;
+            updateScoreText();
+            if (scorePlayer1 >= 5)
+            {
+                gameManager.win("player 1 ! ");
+            }
+
+        }
+        public void setScorePlayer2(int newScore)
+        {
+            scorePlayer2 = newScore;
+            updateScoreText();
+            if (scorePlayer2 >= 5)
+            {
+                gameManager.win("player 2 ! ");
+            }
+        }
+
+        public int getScorePlayer1()
+        {
+            return scorePlayer1;
+        }
+
+        public int getScorePlayer2()
+        {
+            return scorePlayer2;
+        }
+
+    }
 }

@@ -1,10 +1,8 @@
-using System;
+using Core;
 using System.Collections;
 using System.Collections.Generic;
-using Core;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 
 namespace RedAlert
@@ -12,7 +10,7 @@ namespace RedAlert
     public class GameManagerRedAlert : MonoBehaviour
     {
         [SerializeField] private Object playerPrefab;
-        [SerializeField] private GameObject camera;
+        [SerializeField] private GameObject cameraFollower;
         [SerializeField] private LevelsManager levelsManager;
         [SerializeField] private TMP_Text textChrono;
         private int nbPlayer = 0;
@@ -20,7 +18,7 @@ namespace RedAlert
         private List<PlayerController> players = new List<PlayerController>();
         private int winner;
         private bool jeuFini = false;
-        [SerializeField] private GameObject animation;
+        [SerializeField] private GameObject animationIntro;
 
         [SerializeField] private TextMeshProUGUI winnerText;
         private bool canStartGame = false;
@@ -31,37 +29,42 @@ namespace RedAlert
         [SerializeField] private Object textFollowerPrefab;
 
         private List<int> remainingPlayers = new List<int>();
-        
-        private void Start() {
+
+        private void Start()
+        {
             GameManager.Instance.subscribeToStartGame(onReadyToStartGame);
             StartCoroutine(animationWaiting());
         }
 
-        IEnumerator animationWaiting() {
+        IEnumerator animationWaiting()
+        {
             yield return new WaitForSeconds(durationAnimation);
-            if(canStartGame) startGame();
+            if (canStartGame) startGame();
             animTerminer = true;
         }
 
 
-        private void onReadyToStartGame() {
+        private void onReadyToStartGame()
+        {
             canStartGame = true;
-            if(animTerminer) startGame();
+            if (animTerminer) startGame();
         }
 
-        
 
-        private void startGame() {
-            if(gameRunning) return;
+
+        private void startGame()
+        {
+            if (gameRunning) return;
             gameRunning = true;
-            animation.SetActive(false);
+            animationIntro.SetActive(false);
             setChrono();
             PlayerConfigurationManager playerConfigurationManager = PlayerConfigurationManager.Instance;
             IReadOnlyList<PlayerConfiguration> playerConfigurations = playerConfigurationManager.PlayerConfigurations;
-            CameraPathFollower cameraPathFollower = camera.GetComponent<CameraPathFollower>();
+            CameraPathFollower cameraPathFollower = cameraFollower.GetComponent<CameraPathFollower>();
             cameraPathFollower.players = new List<Transform>();
             int index = 0;
-            foreach (PlayerConfiguration playerConfiguration in playerConfigurations) {
+            foreach (PlayerConfiguration playerConfiguration in playerConfigurations)
+            {
                 addPlayer(cameraPathFollower, playerConfiguration, index);
                 remainingPlayers.Add(index);
                 index++;
@@ -69,16 +72,17 @@ namespace RedAlert
 
             nbPlayer = playerConfigurations.Count;
             actualNbPlayer = nbPlayer;
-            camera.SetActive(true);
+            cameraFollower.SetActive(true);
         }
 
         private void addPlayer(CameraPathFollower cameraPathFollower, PlayerConfiguration playerConfiguration,
-            int index) {
+            int index)
+        {
             GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
             PlayerController playerComponent = player.GetComponent<PlayerController>();
             playerComponent.playerInput = playerConfiguration.Input;
             playerComponent.levelsManager = levelsManager;
-            playerComponent.playerIndex = index; 
+            playerComponent.playerIndex = index;
             playerComponent.diedEvent += onPlayerDied;
             cameraPathFollower.players.Add(player.transform);
             players.Add(playerComponent);
@@ -90,38 +94,50 @@ namespace RedAlert
             gameObjectFollower.setObjectToFollow(player);
         }
 
-        private void Update() {
-            if (gameRunning) {
+        private void Update()
+        {
+            if (gameRunning)
+            {
                 updateChrono();
             }
         }
 
-        private void setChrono() {
+        private void setChrono()
+        {
             timestampStartTime = Time.time;
             textChrono.gameObject.SetActive(true);
             updateChrono();
         }
 
-        private void updateChrono() {
+        private void updateChrono()
+        {
             float elapsedTime = Time.time - timestampStartTime;
             textChrono.SetText((Mathf.Floor(elapsedTime / 60)).ToString("0") + ":" + (elapsedTime % 60).ToString("0.00"));
         }
 
-        private void onPlayerDied(int index) {
-            if(jeuFini) return;
+        private void onPlayerDied(int index)
+        {
+            if (jeuFini) return;
             actualNbPlayer--;
             remainingPlayers.Remove(index);
-            if (actualNbPlayer <= 1) {
+            if (actualNbPlayer <= 1)
+            {
                 jeuFini = true;
-                if (remainingPlayers.Count == 0) {
+                if (remainingPlayers.Count == 0)
+                {
                     winner = index;
-                } else {
+                }
+                else
+                {
                     winner = remainingPlayers[0];
                 }
                 gameRunning = false;
-                if (players.Count > 1) {
-                    winnerText.SetText("Bravo au joueur " + winner );
-                } else {
+                if (players.Count > 1)
+                {
+                    winnerText.SetText("Bravo au joueur " + winner);
+                }
+                else
+                {
                     float elapsedTime = Time.time - timestampStartTime;
                     string time = (Mathf.Floor(elapsedTime / 60)).ToString("0") + "m" + (elapsedTime % 60).ToString("0.00") + "s";
                     winnerText.SetText("Score : " + time);
@@ -129,10 +145,11 @@ namespace RedAlert
                 Invoke("fin", 5.0f);
             }
         }
-        
-        
 
-        private void fin() {
+
+
+        private void fin()
+        {
             int[] resultat = new int[nbPlayer];
             resultat[winner] = 100;
             GameManager.Instance.jeuSuivant(resultat);

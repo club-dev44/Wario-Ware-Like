@@ -7,6 +7,6 @@ namespace Core
         public GamesGenerationException(string message) : base(message) { }
 
         public GamesGenerationException(string message, Exception innerException) : base(message, innerException) { }
-        
+
     }
 }

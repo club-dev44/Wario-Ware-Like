@@ -328,10 +328,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8409114535738883262, guid: 9691fa6feb3b02a408f0eb35272acc3b, type: 3}
-  camera: {fileID: 519420028}
+  cameraFollower: {fileID: 519420028}
   levelsManager: {fileID: 539218433}
   textChrono: {fileID: 681125325}
-  animation: {fileID: 1321680396}
+  animationIntro: {fileID: 1321680396}
   winnerText: {fileID: 361309721}
   textFollowerPrefab: {fileID: 6346994326650672626, guid: 81f43dc523adc0740ba2c6078feb5996, type: 3}
 --- !u!4 &395047356

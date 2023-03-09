@@ -1,27 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core
 {
-    
-public class PauseMenuManager : MonoBehaviour
-{
-    [SerializeField] private GameObject uiPauseMenu;
 
-    // Update is called once per frame
-    void Update()
+    public class PauseMenuManager : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        [SerializeField] private GameObject uiPauseMenu;
+
+        // Update is called once per frame
+        void Update()
         {
-            activeDesactiveUI();
-        }        
-    }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                activeDesactiveUI();
+            }
+        }
 
-    public void activeDesactiveUI()
-    {
-        uiPauseMenu.SetActive(!uiPauseMenu.activeSelf);
+        public void activeDesactiveUI()
+        {
+            uiPauseMenu.SetActive(!uiPauseMenu.activeSelf);
+        }
     }
 }
-}
-    

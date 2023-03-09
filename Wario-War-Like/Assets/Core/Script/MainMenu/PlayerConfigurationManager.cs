@@ -1,11 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Core
 {
@@ -38,15 +35,16 @@ namespace Core
 
         private void Awake()
         {
-            if (Instance != null && Instance != this) Destroy(gameObject);
-            else
+            if (Instance != null && Instance != this)
             {
-                Instance = this;
-                DontDestroyOnLoad(Instance);
-                playerConfigs = new List<PlayerConfiguration>();
+                Destroy(gameObject);
+                return;
             }
-
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+            playerConfigs = new List<PlayerConfiguration>();
             inputManager = GetComponent<PlayerInputManager>();
+            inputManager.enabled = true;
             inputManager.onPlayerJoined += OnPlayerJoin;
             if (enableJoiningByDefault)
             {

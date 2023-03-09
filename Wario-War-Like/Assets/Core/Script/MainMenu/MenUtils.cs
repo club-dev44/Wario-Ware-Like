@@ -1,39 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Core
 {
-    
-public class MenUtils : MonoBehaviour
-{
 
-    const string LOADINGSCENENAME = "LoadingScene";
-
-    public void Quit()
+    public class MenUtils : MonoBehaviour
     {
-        Application.Quit();
-    }
 
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("Menus");
-    }
+        const string LOADINGSCENENAME = "LoadingScene";
 
-    public void play() {
-        if (PlayerConfigurationManager.Instance.AllPlayersReady) {
-            SceneManager.LoadScene(LOADINGSCENENAME);
+        public void Quit()
+        {
+            Application.Quit();
         }
 
-    }
+        public void ReturnToMainMenu()
+        {
+            if (GameManager.Instance != null) {
+                Destroy(GameManager.Instance.gameObject);
+            }
+            if(PlayerConfigurationManager.Instance != null) {
+                Destroy(PlayerConfigurationManager.Instance.gameObject);
+            }
+            SceneManager.LoadScene("Menus");
+        }
 
-    public void enableJoiningForPlayerManager() {
-        PlayerConfigurationManager.Instance.enableJoining();
-    }
+        public void play()
+        {
+            if (PlayerConfigurationManager.Instance.AllPlayersReady)
+            {
+                SceneManager.LoadScene(LOADINGSCENENAME);
+            }
 
-    public void clearPlayers() {
-        PlayerConfigurationManager.Instance.reset();
+        }
+
+        public void enableJoiningForPlayerManager()
+        {
+            PlayerConfigurationManager.Instance.enableJoining();
+        }
+
+        public void clearPlayers()
+        {
+            PlayerConfigurationManager.Instance.reset();
+        }
     }
-}
 }
