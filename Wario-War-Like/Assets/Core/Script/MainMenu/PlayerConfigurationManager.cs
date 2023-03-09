@@ -38,15 +38,15 @@ namespace Core
 
         private void Awake()
         {
-            if (Instance != null && Instance != this) Destroy(gameObject);
-            else
-            {
-                Instance = this;
-                DontDestroyOnLoad(Instance);
-                playerConfigs = new List<PlayerConfiguration>();
+            if (Instance != null && Instance != this) {
+                Destroy(gameObject);
+                return;
             }
-
-            inputManager = GetComponent<PlayerInputManager>();
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+            playerConfigs = new List<PlayerConfiguration>();
+            inputManager = GetComponenpont<PlayerInputManager>();
+            inputManager.enabled = true;
             inputManager.onPlayerJoined += OnPlayerJoin;
             if (enableJoiningByDefault)
             {
