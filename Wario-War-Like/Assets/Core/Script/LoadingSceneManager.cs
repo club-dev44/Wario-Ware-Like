@@ -20,13 +20,15 @@ namespace Core
         private void Start()
         {
             gameManager = GameManager.Instance;
-            StartCoroutine(tempDeChargement());
+            StartCoroutine(LoadingTime());
             PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
         }
 
 
-
-        IEnumerator tempDeChargement()
+        /// <summary>
+        /// TODO
+        /// </summary>
+        IEnumerator LoadingTime()
         {
             yield return null;
 

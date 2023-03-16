@@ -35,6 +35,12 @@ namespace Core
             Application.logMessageReceived += ApplicationOnlogMessageReceived;
         }
 
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="stacktrace"></param>
+        /// <param name="type"></param>
         private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type)
         {
             switch (type)
@@ -63,7 +69,11 @@ namespace Core
         [SerializeField] private Object warningPopUpPrefab;
         [SerializeField] private Object errorPopUpPrefab;
 
-
+        /// <summary>
+        /// TODO ("a" majuscule ?)
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="notificationType"></param>
         public void addNotification(string message, NotificationType notificationType = NotificationType.INFO)
         {
             lock (queueLock)
@@ -72,13 +82,15 @@ namespace Core
                 if (!displayingNotification)
                 {
                     displayingNotification = true;
-                    StartCoroutine(coroutineNotification());
+                    StartCoroutine(CoroutineNotification());
                 }
             }
         }
 
-
-        IEnumerator coroutineNotification()
+        /// <summary>
+        /// TODO
+        /// </summary>
+        IEnumerator CoroutineNotification()
         {
             while (notificationsQueue.Count > 0)
             {

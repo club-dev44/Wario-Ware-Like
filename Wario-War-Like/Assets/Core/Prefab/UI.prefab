@@ -184,8 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec2b9630627ec141868bd8545999a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionNewPopUp: {x: 460, y: 235, z: 0}
-  scaleNewPopUp: {x: 1, y: 1, z: 1}
+  displayingNotification: 0
   infoPopUpPrefab: {fileID: 3341229328599332957, guid: 27637d39bbad7494dbecb73a68139241, type: 3}
   warningPopUpPrefab: {fileID: 2893166360152240451, guid: 7af42338369e31946abdbe7025e417fd, type: 3}
   errorPopUpPrefab: {fileID: 5528284103279456882, guid: 69b5e1d78d4a77143a2d18c80ea26682, type: 3}
@@ -1150,7 +1149,7 @@ Transform:
   - {fileID: 6809891529255254738}
   - {fileID: 6809891528152673316}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6809891529255254750
 GameObject:
@@ -1378,9 +1377,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6809891527865457822}
-        m_TargetAssemblyTypeName: RevenirMenu, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 3966889337351645558}
+        m_TargetAssemblyTypeName: Core.MenUtils, CoreAssembly
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

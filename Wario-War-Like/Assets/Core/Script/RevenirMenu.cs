@@ -12,7 +12,7 @@ namespace Core
             gameManager = GameManager.Instance;
         }
 
-        public void revenirMenu()
+        public void BackToMainMenu()
         {
             gameManager.SceneMenu();
         }

@@ -81,10 +81,11 @@ namespace Core
         }
 
         /// <summary>
-        /// The method to 
+        /// The method to end the current game
+        /// Should provide points to each player for a total of 100 points
         /// </summary>
-        /// <param name="resultatJoueur"></param>
-        /// <exception cref="Exception"></exception>
+        /// <param name="resultatJoueur">An array of the points distributed to each player, should totalize 100 points</param>
+        /// <exception cref="Exception">All the points where not distibuted correctly</exception>
         public void EndMyGame(int[] resultatJoueur)
         {
             if (playerConfiguration.inputManager.playerCount > 1)
