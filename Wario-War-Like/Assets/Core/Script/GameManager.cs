@@ -22,8 +22,8 @@ namespace Core
         private string nomSceneMenu = "Menu";
         private string nomLoadingScene = "loadingScene";
 
-        [SerializeField] private List<GameData> jeuxChoisi = new List<GameData>();
-        public int actualGameIndex { get; private set; }
+        [SerializeField] private List<GameData> jeuxChoisi = new();
+        public int CurrentGameIndex { get; private set; }
         [SerializeField] private readonly int nbJeuParManche = 2;
 
         private PlayerConfigurationManager playerConfiguration;
@@ -32,7 +32,12 @@ namespace Core
 
         private event Action StartGame;
 
-        public void subscribeToStartGame(Action action)
+        /// <summary>
+        /// Allows to subscribe a method to the event triggered when the game should start
+        /// The methods provided are used to start the whole game
+        /// </summary>
+        /// <param name="action">A methode to subscribe the starting game event</param>
+        public void SubscribeToStartGame(Action action)
         {
             playerConfiguration = PlayerConfigurationManager.Instance;
             if (playerConfiguration.AllPlayersReady)
@@ -47,6 +52,7 @@ namespace Core
 
         private void Awake()
         {
+            // Unity singleton pattern
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -61,18 +67,25 @@ namespace Core
             playerConfiguration = PlayerConfigurationManager.Instance;
             if (playerConfiguration.AllPlayersReady)
                 scoresJoueurs = new int[playerConfiguration.PlayerConfigurations.Count];
-            playerConfiguration.allPlayersAreReady += PlayerConfigurationOnallPlayersAreReady;
+            playerConfiguration.allPlayersAreReady += PlayerConfigurationOnAllPlayersAreReady;
         }
 
-        private void PlayerConfigurationOnallPlayersAreReady()
+        /// <summary>
+        /// The behaviour when all players are set to ready from the player configuration
+        /// </summary>
+        private void PlayerConfigurationOnAllPlayersAreReady()
         {
             StartGame?.Invoke();
             StartGame = null;
             scoresJoueurs = new int[playerConfiguration.PlayerConfigurations.Count];
         }
 
-
-        public void jeuSuivant(int[] resultatJoueur)
+        /// <summary>
+        /// The method to 
+        /// </summary>
+        /// <param name="resultatJoueur"></param>
+        /// <exception cref="Exception"></exception>
+        public void EndMyGame(int[] resultatJoueur)
         {
             if (playerConfiguration.inputManager.playerCount > 1)
             {
@@ -83,7 +96,7 @@ namespace Core
             {
                 if (resultatJoueur[0] < 50)
                 {
-                    actualGameIndex = jeuxChoisi.Count;
+                    CurrentGameIndex = jeuxChoisi.Count;
                     SceneManager.LoadScene(nomLoadingScene);
                 }
             }
@@ -94,12 +107,21 @@ namespace Core
             SceneManager.LoadScene(nomLoadingScene);
         }
 
-        public void sceneMenu()
+        /// <summary>
+        /// Load the scene menu
+        /// </summary>
+        public void SceneMenu()
         {
             SceneManager.LoadScene(nomSceneMenu);
         }
 
-        public void choisirJeux(int nbJoueur, int nbJeu)
+        /// <summary>
+        /// The logic to choose a game amoung the possibe ones
+        /// </summary>
+        /// <param name="nbJoueur">The number of player that will play</param>
+        /// <param name="nbJeu">The total number of games</param>
+        /// <exception cref="GamesGenerationException">It was not possible to choose a game which fits the requirements</exception>
+        private void ChooseGame(int nbJoueur, int nbJeu)
         {
             List<GameData> jeuxPossible = scenesDeJeu.FindAll(data => data.nbJoueurs.Any(nbJ => nbJ == nbJoueur));
             jeuxChoisi.Clear();
@@ -114,17 +136,19 @@ namespace Core
             }
         }
 
-        public AsyncOperation chargerProchainJeuxAsync()
+        /// <summary>
+        /// Load the next game while in the loading screen
+        /// </summary>
+        public AsyncOperation LoadNextGameAsync()
         {
-            if (jeuxChoisi.Count == 0) choisirJeux(playerConfiguration.inputManager.playerCount, nbJeuParManche);
-            actualGameIndex++;
+            if (jeuxChoisi.Count == 0) ChooseGame(playerConfiguration.inputManager.playerCount, nbJeuParManche);
+            CurrentGameIndex++;
             AsyncOperation operation;
-            operation = actualGameIndex >= jeuxChoisi.Count ?
+            operation = CurrentGameIndex >= jeuxChoisi.Count ?
                 SceneManager.LoadSceneAsync(finalSceneName) :
-                SceneManager.LoadSceneAsync(jeuxChoisi[actualGameIndex].sceneName);
+                SceneManager.LoadSceneAsync(jeuxChoisi[CurrentGameIndex].sceneName);
             operation.allowSceneActivation = false;
             return operation;
         }
-
     }
 }

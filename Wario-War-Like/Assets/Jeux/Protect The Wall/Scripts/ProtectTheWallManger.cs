@@ -71,7 +71,7 @@ namespace ProtectTheWall
             }
 
             scores[bestPlayerIndex] += 100 - secondarySum;
-            GameManager.Instance.jeuSuivant(scores);
+            GameManager.Instance.EndMyGame(scores);
         }
     }
 }

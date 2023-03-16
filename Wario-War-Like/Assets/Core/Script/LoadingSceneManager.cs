@@ -33,7 +33,7 @@ namespace Core
             startLoadingTimeStamp = Time.time;
             try
             {
-                loadingSceneOperation = gameManager.chargerProchainJeuxAsync();
+                loadingSceneOperation = gameManager.LoadNextGameAsync();
             }
             catch (GamesGenerationException e)
             {

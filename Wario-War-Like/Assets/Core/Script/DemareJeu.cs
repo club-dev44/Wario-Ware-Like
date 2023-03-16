@@ -19,7 +19,7 @@ namespace Core
 
         public void DemarerJeu()
         {
-            gameManager.jeuSuivant(new[] { 5, 0 });
+            gameManager.EndMyGame(new[] { 5, 0 });
         }
     }
 }

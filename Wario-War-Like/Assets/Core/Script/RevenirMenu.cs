@@ -14,7 +14,7 @@ namespace Core
 
         public void revenirMenu()
         {
-            gameManager.sceneMenu();
+            gameManager.SceneMenu();
         }
 
     }
