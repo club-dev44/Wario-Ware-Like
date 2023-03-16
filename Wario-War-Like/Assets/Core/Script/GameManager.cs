@@ -22,7 +22,7 @@ namespace Core
         private string nomSceneMenu = "Menu";
         private string nomLoadingScene = "loadingScene";
 
-        [SerializeField] private List<GameData> jeuxChoisi = new();
+        [SerializeField] public List<GameData> jeuxChoisi = new();
         public int CurrentGameIndex { get; private set; }
         [SerializeField] private readonly int nbJeuParManche = 2;
 

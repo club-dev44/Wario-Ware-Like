@@ -71,7 +71,7 @@ namespace Core
             if (playerConfigs.TrueForAll(pi => pi.IsReady))
             {
                 inputManager.DisableJoining();
-                NotificationManager.LastInstanceCreated.addNotification("Everyone is ready! Let's go!!");
+                NotificationManager.LastInstanceCreated.AddNotification("Everyone is ready! Let's go!!");
                 AllPlayersReady = true;
             }
         }

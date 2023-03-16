@@ -46,14 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenesDeJeu:
   - sceneName: Pong
-    consigne: il suffit de battre ton adversaire
+    consigne: "Pong : D\xE9placer la raquette de haut en bas et renvoyer la balle
+      vers l'adversaire. Essayez d'\xE9viter que la balle ne passe derri\xE8re votre
+      raquette, sinon vous perdrez un point. Le joueur qui atteint le premier 5 points
+      remporte la partie."
     nbJoueurs: 02000000
   - sceneName: RedAlertScene
-    consigne: il suffit de battre ton adversaire
+    consigne: "RelAlert: Inclinez votre pingouin pour le faire plonger le plus profond\xE9ment
+      possible dans le volcan. Le dernier pingouin survivant gagne la partie."
     nbJoueurs: 0100000002000000
   - sceneName: ProtectTheWall
-    consigne: "D\xE9truit les ennemies en leur envoyant des jetons, soit le premier
-      \xE0 100 points !"
+    consigne: "ProtectTheWall: D\xE9truit les ennemies en leur envoyant des jetons,
+      soit le premier \xE0 100 points !"
     nbJoueurs: 01000000020000000300000004000000
   jeuxChoisi: []
   scoresJoueurs: 
