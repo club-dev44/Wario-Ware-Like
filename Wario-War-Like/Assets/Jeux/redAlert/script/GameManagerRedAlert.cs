@@ -32,7 +32,7 @@ namespace RedAlert
 
         private void Start()
         {
-            GameManager.Instance.subscribeToStartGame(onReadyToStartGame);
+            GameManager.Instance.SubscribeToStartGame(onReadyToStartGame);
             StartCoroutine(animationWaiting());
         }
 
@@ -152,7 +152,7 @@ namespace RedAlert
         {
             int[] resultat = new int[nbPlayer];
             resultat[winner] = 100;
-            GameManager.Instance.jeuSuivant(resultat);
+            GameManager.Instance.EndMyGame(resultat);
         }
     }
 }

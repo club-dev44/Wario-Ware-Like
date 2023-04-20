@@ -1,6 +1,8 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Core
@@ -15,29 +17,34 @@ namespace Core
         private Slider loaderFill;
 
         [SerializeField] private NotificationManager notificationManager;
+        [SerializeField] private TMP_Text textConsigne;
 
         private float startLoadingTimeStamp;
         private void Start()
         {
             gameManager = GameManager.Instance;
-            StartCoroutine(tempDeChargement());
+            StartCoroutine(LoadingTime());
             PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
         }
 
 
-
-        IEnumerator tempDeChargement()
+        /// <summary>
+        /// Load the next game scene and wait for 3 seconds before activating it.
+        /// The time is to let the player see the description of the game.
+        /// </summary>
+        IEnumerator LoadingTime()
         {
             yield return null;
 
             startLoadingTimeStamp = Time.time;
             try
             {
-                loadingSceneOperation = gameManager.chargerProchainJeuxAsync();
+                loadingSceneOperation = gameManager.LoadNextGameAsync();
+                textConsigne.text = gameManager.jeuxChoisi[gameManager.CurrentGameIndex].consigne;
             }
             catch (GamesGenerationException e)
             {
-                notificationManager.addNotification(e.Message, NotificationType.ERROR);
+                notificationManager.AddNotification(e.Message, NotificationType.ERROR);
                 SceneManager.LoadScene(0);
                 yield break;
             }
@@ -51,8 +58,7 @@ namespace Core
             loaderFill.value = 0.99f;
             yield return new WaitForSeconds(3.0f - (Time.time - startLoadingTimeStamp));
             loadingSceneOperation.allowSceneActivation = true;
-
-
+            
         }
 
     }

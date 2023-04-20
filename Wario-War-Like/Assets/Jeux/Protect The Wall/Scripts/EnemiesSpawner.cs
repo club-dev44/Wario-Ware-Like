@@ -23,7 +23,7 @@ namespace ProtectTheWall
 
         private void Start()
         {
-            GameManager.Instance.subscribeToStartGame(StartGame);
+            GameManager.Instance.SubscribeToStartGame(StartGame);
         }
 
         public void StartGame()

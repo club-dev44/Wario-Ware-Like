@@ -52,7 +52,7 @@ namespace Pong
 
         private void Start()
         {
-            GameManager.Instance.subscribeToStartGame(newMatch);
+            GameManager.Instance.SubscribeToStartGame(newMatch);
         }
 
 
@@ -88,11 +88,11 @@ namespace Pong
             yield return new WaitForSeconds(5.0f);
             if (resultat[0] == 5)
             {
-                GameManager.Instance.jeuSuivant(new[] { 100, 0 });
+                GameManager.Instance.EndMyGame(new[] { 100, 0 });
             }
             else
             {
-                GameManager.Instance.jeuSuivant(new[] { 0, 100 });
+                GameManager.Instance.EndMyGame(new[] { 0, 100 });
             }
         }
 

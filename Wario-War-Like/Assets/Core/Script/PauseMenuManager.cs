@@ -7,16 +7,16 @@ namespace Core
     {
         [SerializeField] private GameObject uiPauseMenu;
 
-        // Update is called once per frame
+        // Meh faudrait changer ça je pense
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                activeDesactiveUI();
+                EnableDisableUI();
             }
         }
 
-        public void activeDesactiveUI()
+        public void EnableDisableUI()
         {
             uiPauseMenu.SetActive(!uiPauseMenu.activeSelf);
         }

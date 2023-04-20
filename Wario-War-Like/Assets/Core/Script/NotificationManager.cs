@@ -35,21 +35,27 @@ namespace Core
             Application.logMessageReceived += ApplicationOnlogMessageReceived;
         }
 
+        /// <summary>
+        /// callback for log messages from unity
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="stacktrace"></param>
+        /// <param name="type"></param>
         private void ApplicationOnlogMessageReceived(string condition, string stacktrace, LogType type)
         {
             switch (type)
             {
                 case LogType.Error:
-                    addNotification(condition, NotificationType.ERROR);
+                    AddNotification(condition, NotificationType.ERROR);
                     break;
                 case LogType.Exception:
-                    addNotification(condition, NotificationType.ERROR);
+                    AddNotification(condition, NotificationType.ERROR);
                     break;
                 case LogType.Warning:
-                    addNotification(condition, NotificationType.WARNING);
+                    AddNotification(condition, NotificationType.WARNING);
                     break;
                 default:
-                    addNotification(condition, NotificationType.INFO);
+                    AddNotification(condition, NotificationType.INFO);
                     break;
             }
         }
@@ -63,8 +69,12 @@ namespace Core
         [SerializeField] private Object warningPopUpPrefab;
         [SerializeField] private Object errorPopUpPrefab;
 
-
-        public void addNotification(string message, NotificationType notificationType = NotificationType.INFO)
+        /// <summary>
+        /// add notification manually to the queue and display it if no other notification is displayed
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="notificationType"></param>
+        public void AddNotification(string message, NotificationType notificationType = NotificationType.INFO)
         {
             lock (queueLock)
             {
@@ -72,13 +82,15 @@ namespace Core
                 if (!displayingNotification)
                 {
                     displayingNotification = true;
-                    StartCoroutine(coroutineNotification());
+                    StartCoroutine(CoroutineNotification());
                 }
             }
         }
 
-
-        IEnumerator coroutineNotification()
+        /// <summary>
+        /// Unqueue and display the notifications
+        /// </summary>
+        IEnumerator CoroutineNotification()
         {
             while (notificationsQueue.Count > 0)
             {
