@@ -80,15 +80,15 @@ namespace RedAlert
         {
             GameObject player = (GameObject)Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
             PlayerController playerComponent = player.GetComponent<PlayerController>();
-            playerComponent.playerInput = playerConfiguration.Input;
+            playerComponent.playerConfiguration = playerConfiguration;
             playerComponent.levelsManager = levelsManager;
-            playerComponent.playerIndex = index;
             playerComponent.diedEvent += onPlayerDied;
             cameraPathFollower.players.Add(player.transform);
             players.Add(playerComponent);
 
             GameObject textFollowerGameObject = (GameObject)Instantiate(textFollowerPrefab, Vector3.zero, Quaternion.identity);
             TMP_Text textComponent = textFollowerGameObject.GetComponentInChildren<TMP_Text>();
+            textComponent.color = playerConfiguration.PlayerColor;
             textComponent.SetText("Joueur " + index);
             GameObjectFollower gameObjectFollower = textFollowerGameObject.GetComponentInChildren<GameObjectFollower>();
             gameObjectFollower.setObjectToFollow(player);

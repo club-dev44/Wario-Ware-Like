@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Object = UnityEngine.Object;
@@ -6,10 +7,8 @@ namespace RedAlert
 {
     public class PlayerController : MonoBehaviour
     {
-        public PlayerInput playerInput;
         public LevelsManager levelsManager;
-        public GameManagerRedAlert gameManagerRedAlert;
-        public int playerIndex;
+        public PlayerConfiguration playerConfiguration;
 
 
         public delegate void diedEventMethod(int index);
@@ -25,7 +24,7 @@ namespace RedAlert
 
         private void FixedUpdate()
         {
-            if (playerInput.actions[inputActionName].IsPressed())
+            if (playerConfiguration.Input.actions[inputActionName].IsPressed())
             {
                 rb.velocity += new Vector2(boostRight, boostUp) * Time.deltaTime;
             }
@@ -37,7 +36,7 @@ namespace RedAlert
             if (col.tag.Equals(tagWall))
             {
                 Instantiate(explosionOnImpact, transform.position, transform.rotation);
-                diedEvent?.Invoke(playerIndex);
+                diedEvent?.Invoke(playerConfiguration.PlayerIndex);
                 gameObject.SetActive(false);
             }
 
