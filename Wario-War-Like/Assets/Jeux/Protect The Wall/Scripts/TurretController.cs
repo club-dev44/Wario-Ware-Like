@@ -51,6 +51,7 @@ namespace ProtectTheWall
 
         private void Start()
         {
+            barrel.GetComponent<SpriteRenderer>().color = playerConfiguration.PlayerColor;
             Points = 0;
             currentRotationSpeed = normalRotationSpeed;
             StartCoroutine(BarrelRotation());

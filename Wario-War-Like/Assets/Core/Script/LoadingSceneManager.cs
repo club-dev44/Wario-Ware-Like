@@ -24,7 +24,7 @@ namespace Core
         {
             gameManager = GameManager.Instance;
             StartCoroutine(LoadingTime());
-            PlayerConfigurationManager.Instance.resetCurrentActionMapOfAllPlayersInput();
+            PlayerConfigurationManager.Instance.ResetCurrentActionMapOfAllPlayersInput();
         }
 
 

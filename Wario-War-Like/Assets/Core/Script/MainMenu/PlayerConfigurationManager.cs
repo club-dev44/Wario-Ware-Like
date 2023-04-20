@@ -48,11 +48,11 @@ namespace Core
             inputManager.onPlayerJoined += OnPlayerJoin;
             if (enableJoiningByDefault)
             {
-                enableJoining();
+                EnableJoining();
             }
             else
             {
-                disableJoining();
+                DisableJoining();
             }
         }
 
@@ -85,29 +85,35 @@ namespace Core
             }
         }
 
-        public void reset()
+        public void ResetConfiguration()
         {
             RemoveAllPlayersFromGame();
             allPlayersReady = false;
-            this.playerConfigs.Clear();
+            playerConfigs.Clear();
             inputManager.DisableJoining();
         }
 
 
-        public void enableJoining()
+        public void EnableJoining()
         {
             inputManager.EnableJoining();
         }
 
-        public void disableJoining()
+        public void DisableJoining()
         {
             inputManager.DisableJoining();
         }
 
-        public void resetCurrentActionMapOfAllPlayersInput() {
+        public void ResetCurrentActionMapOfAllPlayersInput() {
             foreach (PlayerConfiguration playerConfiguration in PlayerConfigurations) {
                 playerConfiguration.Input.currentActionMap = playerConfiguration.Input.actions.FindActionMap(playerConfiguration.Input.defaultActionMap);
             }
+        }
+
+        public void ChangePlayerColor(int index, Color newColor)
+        {
+            playerConfigs[index].PlayerColor = newColor;
+
         }
     }
 
@@ -122,6 +128,6 @@ namespace Core
         public PlayerInput Input;
         public int PlayerIndex;
         public bool IsReady;
-        public Material PlayerMaterial;
+        public Color PlayerColor;
     }
 }

@@ -36,12 +36,12 @@ namespace Core
 
         public void enableJoiningForPlayerManager()
         {
-            PlayerConfigurationManager.Instance.enableJoining();
+            PlayerConfigurationManager.Instance.EnableJoining();
         }
 
         public void clearPlayers()
         {
-            PlayerConfigurationManager.Instance.reset();
+            PlayerConfigurationManager.Instance.ResetConfiguration();
         }
     }
 }
