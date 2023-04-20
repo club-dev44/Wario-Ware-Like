@@ -27,7 +27,7 @@ public class PlayerInputUpdateMap : InputTestFixture
         UnityEngine.Assertions.Assert.IsNotNull(playerMananager);
         PlayerConfigurationManager playerConfigurationManager = playerMananager.GetComponent<PlayerConfigurationManager>();
         Assert.Zero(playerConfigurationManager.PlayerConfigurations.Count);
-        playerConfigurationManager.enableJoining();
+        playerConfigurationManager.EnableJoining();
         var gamepad = InputSystem.AddDevice<Gamepad>();
         Press(gamepad.startButton);
         yield return null;
@@ -41,7 +41,7 @@ public class PlayerInputUpdateMap : InputTestFixture
         UnityEngine.Assertions.Assert.IsNotNull(playerMananager);
         PlayerConfigurationManager playerConfigurationManager = playerMananager.GetComponent<PlayerConfigurationManager>();
         Assert.Zero(playerConfigurationManager.PlayerConfigurations.Count);
-        playerConfigurationManager.enableJoining();
+        playerConfigurationManager.EnableJoining();
         var gamepad = InputSystem.AddDevice<Gamepad>();
         Press(gamepad.startButton);
         yield return null;
@@ -55,7 +55,7 @@ public class PlayerInputUpdateMap : InputTestFixture
             new LoadSceneParameters(LoadSceneMode.Single));
         yield return null;
         Assert.NotNull(PlayerConfigurationManager.Instance.gameObject);
-        PlayerConfigurationManager.Instance.enableJoining();
+        PlayerConfigurationManager.Instance.EnableJoining();
         var gamepad = InputSystem.AddDevice<Gamepad>();
         Press(gamepad.startButton);
         yield return null;
@@ -73,7 +73,7 @@ public class PlayerInputUpdateMap : InputTestFixture
             new LoadSceneParameters(LoadSceneMode.Single));
         yield return null;
         Assert.NotNull(PlayerConfigurationManager.Instance.gameObject);
-        PlayerConfigurationManager.Instance.enableJoining();
+        PlayerConfigurationManager.Instance.EnableJoining();
         var gamepad = InputSystem.AddDevice<Gamepad>();
         Press(gamepad.startButton);
         yield return null;
