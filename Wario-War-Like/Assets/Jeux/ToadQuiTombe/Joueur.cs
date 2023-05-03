@@ -11,6 +11,7 @@ public class Joueur : MonoBehaviour
     public Rigidbody2D Rb;
     public Transform Tr;
     public Animator An;
+    public BoxCollider2D Bc;
     public bool end;
     public int Score;
     public float PositionDépart;
@@ -24,7 +25,7 @@ public class Joueur : MonoBehaviour
         Tr = gameObject.GetComponent<Transform>();
         An = gameObject.GetComponent<Animator>();
         Score = 0;
-        gameObject.AddComponent<BoxCollider2D>();
+        Bc = gameObject.GetComponent<BoxCollider2D>();
         PositionDépart = Tr.position.y;
     }
 
