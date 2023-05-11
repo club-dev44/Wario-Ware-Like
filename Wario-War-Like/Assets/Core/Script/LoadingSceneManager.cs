@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -45,8 +46,12 @@ namespace Core
             catch (GamesGenerationException e)
             {
                 notificationManager.AddNotification(e.Message, NotificationType.ERROR);
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene("Menus");
                 yield break;
+            }
+            catch (Exception)
+            {
+                textConsigne.text = "";
             }
             while (!loadingSceneOperation.isDone)
             {
